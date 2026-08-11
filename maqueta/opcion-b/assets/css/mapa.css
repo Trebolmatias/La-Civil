@@ -1,0 +1,90 @@
+/* ===== Mapa de hoteles adheridos — Opción B (paleta violeta/coral) ===== */
+:root{
+  --lc-primary:#525fe1;
+  --lc-primary-d:#3a46c9;
+  --lc-coral:#f26b65;
+  --lc-ink:#242a45;
+  --lc-ink-soft:#6b7280;
+  --lc-surface:#ffffff;
+  --lc-surface-2:#f4f5fb;
+  --lc-line:#e6e8f2;
+  --lc-primary-bg:#ecefff;
+  --lc-shadow:0 1px 2px rgba(30,34,80,.06),0 12px 34px -16px rgba(40,46,120,.30);
+  --lc-shadow-lg:0 26px 60px -30px rgba(40,46,120,.5);
+  --lc-r:16px;
+}
+
+.lc-mapsec .hoteles-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start;margin-top:40px}
+/* (9) Mapa fijo al hacer scroll (queda debajo del navbar fijo, ~90px) */
+.lc-mapsec .mapbox{position:sticky;top:90px;background:var(--lc-surface);border:1px solid var(--lc-line);
+  border-radius:var(--lc-r);overflow:hidden;box-shadow:var(--lc-shadow)}
+.lc-mapsec #leafmap{height:620px;width:100%;border-radius:var(--lc-r);overflow:hidden;background:#e8edf2;z-index:0}
+.lc-mapsec .leaflet-container{font-family:inherit}
+
+/* marker pin */
+.mk-pin{width:34px;height:34px;border-radius:50%;background:linear-gradient(180deg,#6b76ee,var(--lc-primary));
+  color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px;border:2px solid #fff;
+  box-shadow:0 3px 10px rgba(40,46,120,.5);cursor:pointer;transition:transform .15s,background .15s}
+.mk-pin:hover{transform:scale(1.15)}
+.mk-pin.sel{background:linear-gradient(180deg,var(--lc-coral),#e0554f);transform:scale(1.22);
+  box-shadow:0 6px 18px rgba(210,80,74,.55)}
+
+/* popup */
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--lc-surface);color:var(--lc-ink);
+  box-shadow:var(--lc-shadow-lg)}
+.leaflet-popup-content-wrapper{border-radius:14px}
+.leaflet-popup-content{margin:14px 16px;font-family:inherit}
+.leaflet-popup-content .pop-title{font-weight:700;font-size:18px;color:var(--lc-ink)}
+.leaflet-popup-content .pop-sub{font-size:11.5px;color:var(--lc-primary);font-weight:800;text-transform:uppercase;
+  letter-spacing:.05em;margin-top:3px}
+.leaflet-popup-content ul{margin:10px 0 0;padding-left:0;list-style:none;font-size:13.5px;color:var(--lc-ink);
+  max-height:170px;overflow:auto}
+.leaflet-popup-content li{display:flex;gap:8px;align-items:flex-start;margin:5px 0}
+.leaflet-popup-content li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lc-primary);
+  margin-top:7px;flex:0 0 auto}
+.leaflet-popup-content a.pop-cta{display:inline-block;margin-top:12px;font-weight:700;font-size:13px;color:var(--lc-primary)}
+.leaflet-popup-content a.pop-cta:hover{color:var(--lc-coral)}
+
+/* side panel */
+.lc-mapsec .hpanel{display:flex;flex-direction:column}
+.lc-mapsec .hbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.lc-mapsec .hbar .cnt{font-size:14px;color:var(--lc-ink-soft)}
+.lc-mapsec .hbar .cnt b{color:var(--lc-ink);font-weight:700}
+.lc-mapsec .hsearch{display:flex;align-items:center;gap:9px;border:1px solid var(--lc-line);border-radius:999px;
+  padding:9px 15px;background:var(--lc-surface-2);min-width:220px;flex:1;max-width:340px}
+.lc-mapsec .hsearch input{border:0;outline:0;background:transparent;font-family:inherit;font-size:14.5px;color:var(--lc-ink);width:100%}
+.lc-mapsec .hsearch [class^="ti-"]{color:var(--lc-ink-soft)}
+
+/* (10) Lista de destinos con aire (sin caja apretada con scroll interno) */
+.lc-mapsec .hlist{display:flex;flex-direction:column;gap:13px}
+.lc-mapsec .hcard{border:1px solid var(--lc-line);border-radius:14px;background:var(--lc-surface);
+  box-shadow:var(--lc-shadow);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.lc-mapsec .hcard:hover{box-shadow:var(--lc-shadow-lg)}
+.lc-mapsec .hcard.active{border-color:var(--lc-primary)}
+.lc-mapsec .hc-head{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer}
+.lc-mapsec .hc-thumb{position:relative;width:48px;height:48px;border-radius:10px;overflow:hidden;flex:0 0 auto;
+  background:var(--lc-primary-bg);display:grid;place-items:center}
+.lc-mapsec .hc-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.lc-mapsec .hc-thumb-ic{color:var(--lc-primary);display:grid;place-items:center}
+.lc-mapsec .hc-name{font-weight:650;font-size:16px;flex:1;color:var(--lc-ink)}
+.lc-mapsec .hc-count{background:var(--lc-surface-2);color:var(--lc-ink-soft);font-weight:700;font-size:12.5px;
+  padding:4px 11px;border-radius:999px;white-space:nowrap}
+.lc-mapsec .hcard.active .hc-count{background:var(--lc-primary-bg);color:var(--lc-primary)}
+.lc-mapsec .hc-chev{color:var(--lc-ink-soft);display:grid;place-items:center;transition:transform .2s}
+.lc-mapsec .hcard.active .hc-chev{transform:rotate(90deg);color:var(--lc-primary)}
+.lc-mapsec .hc-body{display:none;padding:0 16px 16px}
+.lc-mapsec .hcard.active .hc-body{display:block}
+.lc-mapsec .hc-body ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.lc-mapsec .hc-body li{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--lc-ink)}
+.lc-mapsec .hc-body li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lc-primary);flex:0 0 auto}
+
+.lc-mapsec .resnote{margin-top:18px;background:var(--lc-surface-2);border:1px solid var(--lc-line);
+  border-radius:var(--lc-r);padding:16px 18px;font-size:13.5px;color:var(--lc-ink-soft);display:flex;gap:12px;align-items:flex-start}
+.lc-mapsec .resnote [class^="ti-"]{color:var(--lc-primary);flex:0 0 auto;margin-top:2px;font-size:18px}
+
+@media (max-width:900px){
+  .lc-mapsec .hoteles-wrap{grid-template-columns:1fr;gap:22px}
+  .lc-mapsec .mapbox{position:static}
+  .lc-mapsec #leafmap{height:420px}
+  .lc-mapsec .hlist{max-height:none}
+}

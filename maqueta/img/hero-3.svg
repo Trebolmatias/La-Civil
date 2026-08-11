@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Becas a la Excelencia">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071d33"/>
+      <stop offset=".5" stop-color="#0c5a8f"/>
+      <stop offset="1" stop-color="#12a6e6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".74" cy=".34" r=".55">
+      <stop offset="0" stop-color="#63d0f7" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#63d0f7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d7edfb"/>
+    </linearGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#ffffff" opacity=".08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="800" fill="url(#bg)"/>
+  <rect width="1600" height="800" fill="url(#dots)"/>
+  <rect width="1600" height="800" fill="url(#glow)"/>
+  <!-- arcos suaves detrás -->
+  <g fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width="2">
+    <circle cx="1180" cy="360" r="250"/>
+    <circle cx="1180" cy="360" r="330"/>
+  </g>
+
+  <!-- sparkles -->
+  <g fill="#eaf7ff">
+    <path d="M1010 205 q10 34 44 44 q-34 10 -44 44 q-10 -34 -44 -44 q34 -10 44 -44z" opacity=".9"/>
+    <path d="M1470 300 q7 24 31 31 q-24 7 -31 31 q-7 -24 -31 -31 q24 -7 31 -31z" opacity=".8"/>
+    <path d="M1420 545 q6 20 26 26 q-20 6 -26 26 q-6 -20 -26 -26 q20 -6 26 -26z" opacity=".75"/>
+    <path d="M980 470 q5 18 23 23 q-18 5 -23 23 q-5 -18 -23 -23 q18 -5 23 -23z" opacity=".7"/>
+  </g>
+
+  <!-- birrete (graduation cap) centrado a la derecha -->
+  <g>
+    <!-- cuerpo del gorro -->
+    <path d="M1085 372 L1085 402 Q1180 462 1275 402 L1275 372 Z" fill="#cbe6fa"/>
+    <path d="M1085 372 Q1180 420 1275 372 L1275 402 Q1180 462 1085 402 Z" fill="#a9d3f2"/>
+    <!-- tabla (mortarboard) en perspectiva -->
+    <polygon points="1180,250 1440,360 1180,470 920,360" fill="url(#board)"/>
+    <polygon points="1180,470 1440,360 1440,372 1180,482" fill="#bcdff7"/>
+    <polygon points="1180,470 920,360 920,372 1180,482" fill="#d6ecfb"/>
+    <!-- botón central -->
+    <circle cx="1180" cy="360" r="15" fill="#12a6e6"/>
+    <!-- borla (tassel) -->
+    <path d="M1180 360 L1400 360 L1400 520" fill="none" stroke="#ffd34d" stroke-width="6" stroke-linecap="round"/>
+    <g fill="#ffd34d">
+      <rect x="1388" y="512" width="24" height="20" rx="4"/>
+      <path d="M1388 528 L1384 566 M1396 530 L1394 570 M1404 530 L1406 570 M1412 528 L1416 566" stroke="#ffd34d" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- destello del botón -->
+  <circle cx="1180" cy="360" r="26" fill="none" stroke="#8fe0ff" stroke-width="3" opacity=".5"/>
+</svg>

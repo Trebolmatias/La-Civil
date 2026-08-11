@@ -1,0 +1,90 @@
+/* ===== la Civil — ajustes extra sobre el template (Opción B) ===== */
+
+/* (8) Ocultar la flecha "subir" del template (scroll lento) */
+#topcontrol{display:none!important}
+
+/* (2) Imágenes uniformes: mismo borde redondeado en todo el contenido */
+.single_c_img img,
+.single_blog img,
+.our-team .team-content img,
+.ab_img img,
+.single_agent_image img,
+.testi_area .ab_img img{border-radius:16px!important}
+
+/* (3) Aire vertical entre tarjetas cuando bajan de fila */
+.home_course .row,
+.team_area .row,
+.blog_area .row,
+.top_cat__area .row{row-gap:34px}
+
+/* Tarjetas de contacto (Dónde estamos / Teléfono / Escribinos) a igual altura */
+.address_area .row{display:flex;flex-wrap:wrap;align-items:stretch}
+.address_area .row > [class*="col-"]{display:flex;flex-direction:column}
+.address_area .single_address{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:768px){.address_area .row > [class*="col-"]{margin-bottom:20px}}
+
+/* ============ (1) HERO CARRUSEL (3 slides) ============ */
+.lc-hero{position:relative}
+.lc-hero .owl-carousel,.lc-hero .owl-wrapper-outer{margin:0}
+.lc-slide{position:relative;min-height:560px;display:flex;align-items:center;
+  background-size:cover;background-position:center center;background-repeat:no-repeat}
+.lc-slide::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(11,16,74,.82) 0%,rgba(11,16,74,.55) 45%,rgba(11,16,74,.15) 100%)}
+.lc-slide-c{position:relative;z-index:2;max-width:620px;color:#fff;padding:40px 0}
+.lc-kicker{display:inline-block;font-family:'Jost',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.18em;text-transform:uppercase;color:#fff;background:#525fe1;
+  padding:7px 15px;border-radius:999px;margin-bottom:20px}
+.lc-slide-c h1{color:#fff;font-size:clamp(30px,4.4vw,52px);line-height:1.12;margin:0 0 16px;font-weight:700}
+.lc-slide-c h1 span{color:#f9c74f}
+.lc-slide-c p{color:#e7e9fb;font-size:18px;line-height:1.6;margin:0 0 26px;max-width:48ch}
+.lc-slide-c .btn_one{margin-right:10px}
+.lc-slide-c .btn_ghost{display:inline-block;color:#fff;border:1.5px solid rgba(255,255,255,.6);
+  padding:13px 26px;border-radius:8px;font-family:'Jost',sans-serif;font-weight:600;transition:.25s}
+.lc-slide-c .btn_ghost:hover{background:#fff;color:#0b104a}
+
+/* nav y dots del hero (Owl v1) */
+.lc-hero .owl-buttons div{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;
+  border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);
+  color:#fff;font-size:26px;line-height:46px;text-align:center;opacity:0;transition:.25s;backdrop-filter:blur(4px)}
+.lc-hero:hover .owl-buttons div{opacity:1}
+.lc-hero .owl-buttons .owl-prev{left:22px}
+.lc-hero .owl-buttons .owl-next{right:22px}
+.lc-hero .owl-buttons div:hover{background:#525fe1;border-color:#525fe1}
+.lc-hero .owl-pagination{position:absolute;bottom:22px;left:0;right:0;text-align:center}
+.lc-hero .owl-page span{width:11px;height:11px;background:rgba(255,255,255,.55);opacity:1;margin:4px}
+.lc-hero .owl-page.active span{background:#f9c74f;width:28px;border-radius:6px}
+@media(max-width:768px){.lc-slide{min-height:460px}.lc-slide-c{padding:32px 0}}
+
+/* ============ (7) BOTÓN FLOTANTE WHATSAPP ============ */
+.wa-float{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;
+  background:#25923c;color:#fff;display:grid;place-items:center;z-index:9000;
+  box-shadow:0 10px 26px -8px rgba(37,146,60,.7);transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:scale(1.08);color:#fff;box-shadow:0 14px 30px -8px rgba(37,146,60,.85)}
+.wa-float svg{width:32px;height:32px}
+@media(max-width:600px){.wa-float{width:52px;height:52px;right:16px;bottom:16px}.wa-float svg{width:28px;height:28px}}
+
+/* ============ (4)(5) MODALES LOGIN / REGISTRO ============ */
+.lc-modal-ov{position:fixed;inset:0;background:rgba(11,16,74,.55);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;z-index:10000;padding:20px}
+.lc-modal-ov.open{display:flex}
+.lc-modal{background:#fff;border-radius:20px;max-width:440px;width:100%;padding:36px 34px;position:relative;
+  box-shadow:0 40px 90px -30px rgba(11,16,74,.6);animation:lcpop .28s ease}
+@keyframes lcpop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.lc-modal .lc-close{position:absolute;top:16px;right:18px;width:34px;height:34px;border:0;border-radius:50%;
+  background:#f0f1fa;color:#525fe1;font-size:20px;line-height:1;cursor:pointer;transition:.2s}
+.lc-modal .lc-close:hover{background:#525fe1;color:#fff}
+.lc-modal .lc-logo{height:40px;width:auto;display:block;margin:0 auto 16px}
+.lc-modal h3{font-family:'Jost',sans-serif;font-weight:700;font-size:24px;color:#0b104a;text-align:center;margin:0 0 6px}
+.lc-modal .lc-sub{text-align:center;color:#6b7280;font-size:14px;margin:0 0 22px}
+.lc-field{margin-bottom:15px}
+.lc-field label{display:block;font-size:13px;font-weight:600;color:#3a3f63;margin-bottom:6px}
+.lc-field input{width:100%;border:1px solid #dfe1ee;border-radius:10px;padding:12px 14px;font-size:15px;
+  font-family:inherit;color:#0b104a;background:#fafbff;transition:border-color .2s,box-shadow .2s}
+.lc-field input:focus{outline:0;border-color:#525fe1;box-shadow:0 0 0 3px rgba(82,95,225,.15)}
+.lc-modal .lc-submit{width:100%;background:#525fe1;color:#fff;border:0;border-radius:10px;padding:13px;
+  font-family:'Jost',sans-serif;font-weight:600;font-size:16px;cursor:pointer;transition:.2s;margin-top:6px}
+.lc-modal .lc-submit:hover{background:#f26b65}
+.lc-modal .lc-alt{text-align:center;font-size:14px;color:#6b7280;margin:18px 0 0}
+.lc-modal .lc-alt a{color:#525fe1;font-weight:600;cursor:pointer}
+.lc-modal .lc-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lc-modal .lc-note{font-size:11.5px;color:#9aa0b4;text-align:center;margin:14px 0 0}

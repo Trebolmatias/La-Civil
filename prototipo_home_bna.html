@@ -1,0 +1,917 @@
+<title>Asociación de Funcionarios BNA — Ser parte tiene beneficios</title>
+<style>
+  :root{
+    --bg:#EDF0F4; --surface:#FFFFFF; --surface-2:#F4F7FA;
+    --ink:#13273A; --ink-soft:#4C6076; --line:#DCE3EB;
+    --navy:#103A5E; --navy-deep:#0B2942; --navy-panel:#0D2E4A;
+    --brass:#B0812C; --brass-bright:#CE9E3B; --brass-ink:#7A5A1E;
+    --wa:#25923c;
+    --maxw:1240px;
+    --r:16px; --r-sm:11px; --r-lg:26px;
+    --shadow:0 1px 2px rgba(16,40,70,.06),0 10px 30px -12px rgba(16,40,70,.18);
+    --shadow-lg:0 30px 70px -30px rgba(11,41,66,.45);
+    --serif:"Palatino Linotype","Iowan Old Style","Palatino",Georgia,"Times New Roman",serif;
+    --sans:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#081726; --surface:#0F2740; --surface-2:#12304C;
+      --ink:#EAF1F8; --ink-soft:#9FB4C8; --line:#21415F;
+      --navy:#1A4B75; --navy-deep:#071829; --navy-panel:#0A2237;
+      --brass:#DDAB48; --brass-bright:#EBBE5E; --brass-ink:#EBC475;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px -14px rgba(0,0,0,.6);
+      --shadow-lg:0 34px 80px -30px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#081726; --surface:#0F2740; --surface-2:#12304C;
+    --ink:#EAF1F8; --ink-soft:#9FB4C8; --line:#21415F;
+    --navy:#1A4B75; --navy-deep:#071829; --navy-panel:#0A2237;
+    --brass:#DDAB48; --brass-bright:#EBBE5E; --brass-ink:#EBC475;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px -14px rgba(0,0,0,.6);
+    --shadow-lg:0 34px 80px -30px rgba(0,0,0,.7);
+  }
+  :root[data-theme="light"]{
+    --bg:#EDF0F4; --surface:#FFFFFF; --surface-2:#F4F7FA;
+    --ink:#13273A; --ink-soft:#4C6076; --line:#DCE3EB;
+    --navy:#103A5E; --navy-deep:#0B2942; --navy-panel:#0D2E4A;
+    --brass:#B0812C; --brass-bright:#CE9E3B; --brass-ink:#7A5A1E;
+    --shadow:0 1px 2px rgba(16,40,70,.06),0 10px 30px -12px rgba(16,40,70,.18);
+    --shadow-lg:0 30px 70px -30px rgba(11,41,66,.45);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;
+    text-wrap:balance;margin:0;letter-spacing:-.01em}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  /* modern line icons */
+  .ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;
+    stroke-linecap:round;stroke-linejoin:round;display:block;flex:0 0 auto}
+  .ic-lg{width:27px;height:27px}
+  .ic-xl{width:34px;height:34px;stroke-width:1.5}
+  .svgdefs{position:absolute;width:0;height:0;overflow:hidden}
+  .why-ic{color:var(--brass-ink)}
+  .need .ndic{color:var(--brass-bright);display:grid;place-items:center}
+  .cat-top .em{color:#f4e6c8;display:grid;place-items:center}
+  .aside-card .em{color:var(--brass-ink)}
+  .eyebrow{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--brass-ink)}
+  .muted{color:var(--ink-soft)}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);
+    font-weight:650;font-size:15.5px;border-radius:999px;padding:.85em 1.5em;cursor:pointer;
+    border:1px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-brass{background:linear-gradient(180deg,var(--brass-bright),var(--brass));
+    color:#20160a;box-shadow:0 8px 22px -8px rgba(176,129,44,.65)}
+  .btn-brass:hover{box-shadow:0 14px 30px -10px rgba(176,129,44,.8)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--navy);color:var(--navy)}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-lg{font-size:16.5px;padding:1em 1.7em}
+
+  /* ===== top nav ===== */
+  header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+  header.nav.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb,var(--bg) 95%,transparent)}
+  .navbar{display:flex;align-items:center;gap:28px;height:72px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;
+    font-size:19px;letter-spacing:-.01em;line-height:1.05}
+  .brand small{display:block;font-family:var(--sans);font-weight:600;font-size:10.5px;
+    letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+  .seal-mini{width:38px;height:38px;border-radius:50%;flex:0 0 auto;
+    background:radial-gradient(circle at 30% 25%,var(--brass-bright),var(--brass) 70%);
+    display:grid;place-items:center;color:#231704;font-family:var(--serif);font-weight:700;font-size:14px;
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.35),inset 0 0 0 4px var(--brass-ink)}
+  .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14.5px;font-weight:600}
+  .navlinks a{color:var(--ink-soft);position:relative;padding:4px 0}
+  .navlinks a:hover{color:var(--ink)}
+  .navlinks a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;
+    background:var(--brass);transition:width .22s ease}
+  .navlinks a:hover::after{width:100%}
+  .nav-cta{margin-left:6px}
+  .theme-btn{margin-left:4px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+    background:var(--surface);cursor:pointer;font-size:17px;display:grid;place-items:center;color:var(--ink)}
+  .menu-toggle{display:none}
+
+  /* ===== hero (full-bleed banner) ===== */
+  .hero{position:relative;overflow:hidden;color:#eef4fa;
+    background:linear-gradient(150deg,#12385a 0%,#0c2942 52%,#081a2c 100%)}
+  .hero::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(206,158,59,.15) 1px,transparent 1.5px);background-size:26px 26px;
+    mask:radial-gradient(120% 120% at 85% 10%,#000,transparent 70%);opacity:.7}
+  .hero::after{content:"";position:absolute;top:-30%;right:-10%;width:60%;height:120%;
+    background:radial-gradient(circle,rgba(35,90,140,.55),transparent 62%);pointer-events:none}
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center;
+    min-height:min(84vh,720px);padding:56px 0}
+  .hero-copy{max-width:38ch}
+  .hero h1{font-size:clamp(42px,6.2vw,74px);color:#fff;letter-spacing:-.02em}
+  .hero h1 em{font-style:normal;color:var(--brass-bright)}
+  .hero-lead{font-size:19.5px;color:#bcd0e2;margin-top:24px;max-width:44ch}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+  .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+  .hero .btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.12)}
+  .trust{display:flex;gap:34px;flex-wrap:wrap;margin-top:46px;padding-top:30px;border-top:1px solid rgba(255,255,255,.16)}
+  .trust .n{font-family:var(--serif);font-size:32px;font-weight:700;color:var(--brass-bright);line-height:1}
+  .trust .l{font-size:13px;color:#9fb6ca;margin-top:6px;max-width:16ch}
+  /* logo strip under hero */
+  .hero-strip{position:relative;border-top:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.18)}
+  .hero-strip .wrap{display:flex;align-items:center;gap:14px 34px;flex-wrap:wrap;padding-top:18px;padding-bottom:18px}
+  .hero-strip .lbl{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8fa7bd}
+  .hero-strip b{font-family:var(--serif);font-size:16px;color:#dbe7f1;font-weight:600;opacity:.9}
+
+  /* hero visual */
+  .hero-visual{position:relative;aspect-ratio:1/1.04;border-radius:var(--r-lg);
+    background:
+      radial-gradient(120% 100% at 80% 0%,#164a74 0%,transparent 55%),
+      linear-gradient(160deg,var(--navy-panel),var(--navy-deep));
+    box-shadow:var(--shadow-lg);overflow:hidden;display:grid;place-items:center}
+  .hero-visual::before{content:"";position:absolute;inset:0;opacity:.5;
+    background-image:radial-gradient(rgba(206,158,59,.16) 1px,transparent 1.4px);
+    background-size:22px 22px;mask:radial-gradient(80% 80% at 50% 45%,#000,transparent 78%)}
+  .seal{position:relative;width:min(56%,270px);aspect-ratio:1;border-radius:50%;
+    display:grid;place-items:center;text-align:center;color:#f4e6c8;
+    background:radial-gradient(circle at 50% 40%,rgba(206,158,59,.14),transparent 62%);
+    box-shadow:inset 0 0 0 2px rgba(206,158,59,.55),inset 0 0 0 12px rgba(206,158,59,.08),
+      inset 0 0 0 13px rgba(206,158,59,.35)}
+  .seal .yr{font-family:var(--serif);font-size:clamp(40px,7vw,64px);font-weight:700;
+    color:var(--brass-bright);line-height:1;letter-spacing:.02em}
+  .seal .lab{font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:#d9c79e;margin-top:10px}
+  .seal .star{color:var(--brass-bright);font-size:15px;letter-spacing:.5em;margin-bottom:6px}
+  .chip-float{position:absolute;background:rgba(255,255,255,.96);color:#0e2c48;border-radius:12px;
+    padding:11px 15px 11px 13px;font-size:14px;font-weight:650;display:flex;align-items:center;gap:9px;
+    box-shadow:0 18px 40px -18px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.6);
+    animation:bob 6s ease-in-out infinite}
+  .chip-float .chip-ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+    background:var(--brass);color:#fff}
+  .cf1{top:6%;left:0;animation-delay:0s}
+  .cf2{top:40%;right:0;animation-delay:-2s}
+  .cf3{bottom:6%;left:4%;animation-delay:-4s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+
+  /* ===== generic section ===== */
+  section{padding:72px 0}
+  .sec-head{max-width:60ch}
+  .sec-head h2{font-size:clamp(28px,3.6vw,42px);margin-top:14px}
+  .sec-head p{color:var(--ink-soft);margin-top:14px;font-size:18px}
+  .center{margin-left:auto;margin-right:auto;text-align:center}
+
+  /* why cards */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .why-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:26px 22px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s,box-shadow .2s}
+  .why-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--brass) 55%,var(--line));
+    box-shadow:var(--shadow-lg)}
+  .why-ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:23px;
+    background:linear-gradient(160deg,color-mix(in srgb,var(--brass) 22%,var(--surface)),var(--surface));
+    border:1px solid color-mix(in srgb,var(--brass) 30%,var(--line));margin-bottom:16px}
+  .why-card h3{font-size:20px}
+  .why-card p{font-size:14.5px;color:var(--ink-soft);margin-top:7px}
+
+  /* needs band (navy) */
+  .band-navy{background:linear-gradient(165deg,var(--navy-panel),var(--navy-deep));color:#eaf1f8}
+  .band-navy .eyebrow{color:var(--brass-bright)}
+  .band-navy .sec-head p{color:#b6c8da}
+  .needs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+  .need{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:14px;
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);cursor:pointer;
+    transition:background .2s,transform .2s,border-color .2s}
+  .need:hover{background:rgba(255,255,255,.1);transform:translateX(4px);border-color:rgba(206,158,59,.5)}
+  .need .q{font-weight:650;font-size:15.5px}
+  .need .a{font-size:13px;color:#a9bccf;margin-top:2px}
+  .need .arw{margin-left:auto;color:var(--brass-bright);font-size:20px;transition:transform .2s}
+  .need:hover .arw{transform:translateX(4px)}
+  .need .ndic{font-size:22px}
+
+  /* catalog */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+  .filter{font-family:var(--sans);font-size:14px;font-weight:600;padding:.6em 1.15em;border-radius:999px;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);cursor:pointer;transition:all .18s}
+  .filter:hover{color:var(--ink);border-color:var(--navy)}
+  .filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  :root[data-theme="dark"] .filter.active{background:var(--brass);color:#20160a;border-color:var(--brass)}
+  @media (prefers-color-scheme:dark){.filter.active{background:var(--brass);color:#20160a;border-color:var(--brass)}}
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .cat-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+  .cat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+  .cat-top{height:104px;position:relative;display:grid;place-items:center;
+    background:linear-gradient(150deg,var(--navy),var(--navy-deep));overflow:hidden}
+  .cat-top::after{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(206,158,59,.2) 1px,transparent 1.4px);background-size:16px 16px;opacity:.55}
+  .cat-top .em{font-size:34px;position:relative;z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+  .cat-tag{position:absolute;top:12px;left:12px;z-index:2;font-size:11px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:#f0e2c0;background:rgba(11,41,66,.6);border:1px solid rgba(206,158,59,.5);
+    padding:4px 9px;border-radius:999px}
+  .cat-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .cat-body h3{font-size:18.5px}
+  .cat-body p{font-size:14px;color:var(--ink-soft);margin-top:6px;flex:1}
+  .cat-link{margin-top:14px;font-weight:700;font-size:14px;color:var(--brass-ink);display:inline-flex;gap:6px;align-items:center}
+  .cat-card:hover .cat-link{gap:10px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;counter-reset:s}
+  .step{position:relative;padding:28px 22px;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r);box-shadow:var(--shadow)}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-weight:700;
+    font-size:44px;color:color-mix(in srgb,var(--brass) 55%,transparent);line-height:1;display:block;margin-bottom:12px}
+  .step h3{font-size:18px}
+  .step p{font-size:14px;color:var(--ink-soft);margin-top:6px}
+  .step-line{position:absolute;top:44px;right:-9px;color:var(--brass);font-size:20px;z-index:2}
+  .steps .step:last-child .step-line{display:none}
+
+  /* highlights */
+  .hl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  .hl{border-radius:var(--r);padding:22px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:8px;min-height:150px}
+  .hl .k{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-ink)}
+  .hl h3{font-size:18px}
+  .hl p{font-size:13.5px;color:var(--ink-soft)}
+  .hl .go{margin-top:auto;font-size:13.5px;font-weight:700;color:var(--navy)}
+  :root[data-theme="dark"] .hl .go{color:var(--brass)}
+  @media (prefers-color-scheme:dark){.hl .go{color:var(--brass)}}
+
+  /* family split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .fam-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fam-tags span{background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:.5em 1em;font-size:14px;font-weight:600;box-shadow:var(--shadow)}
+  .fam-visual{aspect-ratio:4/3;border-radius:var(--r-lg);background:
+      radial-gradient(110% 90% at 15% 15%,#18517d,transparent 55%),
+      linear-gradient(150deg,var(--navy-panel),var(--navy-deep));
+    box-shadow:var(--shadow-lg);position:relative;display:grid;place-items:center;overflow:hidden;padding:28px}
+  .fam-visual .quote{font-family:var(--serif);font-size:clamp(22px,3vw,30px);color:#f2e7cd;text-align:center;line-height:1.25;position:relative;z-index:1}
+  .fam-visual::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(206,158,59,.14) 1px,transparent 1.4px);background-size:20px 20px}
+
+  /* final CTA */
+  .cta-band{background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:#fff;
+    border-radius:var(--r-lg);padding:clamp(40px,6vw,72px);text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .cta-band::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(206,158,59,.16) 1px,transparent 1.4px);background-size:24px 24px;opacity:.4}
+  .cta-band h2{font-size:clamp(30px,4.4vw,50px);position:relative}
+  .cta-band p{position:relative;color:#c4d4e4;margin-top:16px;font-size:19px}
+  .cta-band .hero-cta{justify-content:center;position:relative}
+
+  /* footer */
+  footer{background:var(--navy-deep);color:#c6d4e2;padding:60px 0 32px;margin-top:0}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  footer h4{font-family:var(--sans);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:#8aa3bb;margin:0 0 16px}
+  .foot-brand{font-family:var(--serif);font-size:20px;color:#fff;font-weight:700}
+  .foot-list{display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+  .foot-list a:hover{color:#fff}
+  .foot-contact{font-size:14.5px;line-height:1.9}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:22px;
+    font-size:12.5px;color:#7e97b0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* floating */
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;
+    background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(37,146,60,.6);
+    transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px}
+  .mobile-cta{display:none}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .chip-float{animation:none}
+    *{scroll-behavior:auto}
+  }
+
+  /* responsive */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-visual{max-width:440px;margin:0 auto;width:100%}
+    .why-grid{grid-template-columns:repeat(2,1fr)}
+    .needs-grid{grid-template-columns:repeat(2,1fr)}
+    .cat-grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .step-line{display:none}
+    .hl-grid{grid-template-columns:repeat(2,1fr)}
+    .split{grid-template-columns:1fr;gap:32px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    body{font-size:16px}
+    .navlinks{display:none}
+    .why-grid,.needs-grid,.cat-grid,.steps,.hl-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    section{padding:56px 0}
+    .trust{gap:22px}
+    .nav-cta{display:none}
+    .mobile-cta{display:flex;position:fixed;left:16px;right:88px;bottom:22px;z-index:59;justify-content:center}
+    .mobile-cta .btn{width:100%;justify-content:center}
+  }
+
+  /* ===== views / routing ===== */
+  .view{display:none}
+  .view.active{display:block;animation:viewIn .4s ease}
+  @keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.view.active{animation:none}}
+  .subhero{background:linear-gradient(165deg,var(--navy-panel),var(--navy-deep));color:#eaf1f8;padding:40px 0 46px;position:relative;overflow:hidden}
+  .subhero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(206,158,59,.14) 1px,transparent 1.4px);background-size:22px 22px;opacity:.4}
+  .subhero .wrap{position:relative}
+  .subhero h1{font-size:clamp(30px,4.4vw,48px)}
+  .subhero p{color:#b6c8da;margin-top:12px;font-size:18px;max-width:60ch}
+  .crumb{display:flex;gap:8px;align-items:center;font-size:13.5px;color:#9db2c6;margin-bottom:16px}
+  .crumb a{color:#c9d8e6}.crumb a:hover{color:#fff}
+  .crumb span{color:var(--brass-bright)}
+
+  /* search */
+  .search{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);
+    border-radius:999px;padding:.7em 1.1em;box-shadow:var(--shadow);max-width:420px;margin-top:26px}
+  .search input{border:0;outline:0;background:transparent;font-family:var(--sans);font-size:15px;color:var(--ink);width:100%}
+  .search svg{width:18px;height:18px;color:var(--ink-soft);flex:0 0 auto}
+  .no-res{display:none;text-align:center;color:var(--ink-soft);padding:40px;font-size:16px}
+
+  /* benefit detail */
+  .detail-grid{display:grid;grid-template-columns:1.6fr .9fr;gap:40px;margin-top:44px;align-items:start}
+  .detail-body h2{font-size:26px;margin:28px 0 12px}
+  .detail-body p{color:var(--ink-soft);margin-top:8px}
+  .detail-body ul{margin:12px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .detail-body li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
+  .detail-body li::before{content:"✓";color:var(--brass-ink);font-weight:800;flex:0 0 auto;
+    width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;
+    background:color-mix(in srgb,var(--brass) 20%,var(--surface));border:1px solid color-mix(in srgb,var(--brass) 40%,var(--line))}
+  .aside-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
+    box-shadow:var(--shadow);position:sticky;top:92px}
+  .aside-card .em{font-size:40px}
+  .aside-card h3{font-size:20px;margin-top:10px}
+  .aside-card .meta{display:flex;flex-direction:column;gap:12px;margin:20px 0}
+  .aside-card .meta div{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .aside-card .meta div:last-child{border-bottom:0;padding-bottom:0}
+  .aside-card .meta b{color:var(--ink);font-weight:650}
+  .aside-card .meta span{color:var(--ink-soft);text-align:right}
+  .aside-card .btn{width:100%;justify-content:center}
+
+  /* form */
+  .form-wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;margin-top:44px;align-items:start}
+  .form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:32px;box-shadow:var(--shadow)}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:13px;font-weight:650;color:var(--ink);letter-spacing:.01em}
+  .field label .req{color:var(--brass-ink)}
+  .field input,.field select{font-family:var(--sans);font-size:15px;padding:.7em .85em;border-radius:10px;
+    border:1px solid var(--line);background:var(--surface-2);color:var(--ink);outline:none;transition:border-color .18s,box-shadow .18s}
+  .field input:focus,.field select:focus{border-color:var(--navy);box-shadow:0 0 0 3px color-mix(in srgb,var(--navy) 18%,transparent)}
+  .form-note{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+  .checkrow{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink-soft);margin:6px 0 20px}
+  .checkrow input{margin-top:3px}
+  .form-side{display:flex;flex-direction:column;gap:16px}
+  .side-box{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+  .side-box h4{font-family:var(--serif);font-size:18px;margin:0 0 10px;color:var(--ink)}
+  .side-box ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink-soft);display:flex;flex-direction:column;gap:8px}
+  .success{display:none;text-align:center;padding:48px 32px;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r);box-shadow:var(--shadow)}
+  .success .tick{width:64px;height:64px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;
+    font-size:32px;background:linear-gradient(160deg,var(--brass-bright),var(--brass));color:#20160a}
+  .success h2{font-size:28px}.success p{color:var(--ink-soft);margin-top:10px}
+  @media (max-width:860px){
+    .detail-grid,.form-wrap{grid-template-columns:1fr}
+    .aside-card{position:static}
+    .form-row{grid-template-columns:1fr}
+  }
+</style>
+</style>
+
+<!-- ===================== ICON SPRITE ===================== -->
+<svg class="svgdefs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="ic-edu" viewBox="0 0 24 24"><path d="M2 8.5 12 4l10 4.5-10 4.5z"/><path d="M6 10.8V15c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6v-4.2"/><path d="M22 8.5v5.5"/></symbol>
+  <symbol id="ic-bed" viewBox="0 0 24 24"><path d="M3 6v13M3 13h18v6M21 19v-5a3 3 0 0 0-3-3h-6v3.5"/><circle cx="7" cy="10" r="1.6"/></symbol>
+  <symbol id="ic-legal" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M5 7h14M9 4.5 5 7M15 4.5 19 7"/><path d="M5 7 2.6 12.5a2.8 2.8 0 0 0 4.8 0z"/><path d="M19 7l-2.4 5.5a2.8 2.8 0 0 0 4.8 0z"/></symbol>
+  <symbol id="ic-social" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.7-5 5.5-5s5.5 2 5.5 5"/><path d="M16.5 6.2a2.8 2.8 0 0 1 0 5.4"/><path d="M18 14.7c1.9.6 3 2.3 3 4.8"/></symbol>
+  <symbol id="ic-building" viewBox="0 0 24 24"><path d="M3 21V9l7-4v16M10 9l8 3v9M3 21h18"/><path d="M13.5 13.5h1M13.5 16.5h1M6 12h1M6 15h1M6 18h1"/></symbol>
+  <symbol id="ic-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></symbol>
+  <symbol id="ic-gift" viewBox="0 0 24 24"><path d="M4 9.5h16v3.5H4z"/><path d="M5.5 13v7.5h13V13M12 9.5v11"/><path d="M12 9.5S9.5 9.5 8 8.4C6.8 7.5 7 5.5 8.5 5.5S12 8 12 9.5zM12 9.5s2.5 0 4-1.1C17.2 7.5 17 5.5 15.5 5.5S12 8 12 9.5z"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.5 2.5 6.4 7 7-4.5.6-6.4 2.5-7 7-.6-4.5-2.5-6.4-7-7 4.5-.6 6.4-2.5 7-7z"/></symbol>
+  <symbol id="ic-plane" viewBox="0 0 24 24"><path d="M4 7.5V5.2a1.2 1.2 0 0 1 2-.9l3 2.6 4.5-1.5a2 2 0 0 1 2.4 2.7L14 12l6 5.3a1 1 0 0 1-.9 1.7l-3.4-.8-2 2.6a.9.9 0 0 1-1.6-.5V17l-5 1.3-1 2a.7.7 0 0 1-1.3-.1L3 17.5"/></symbol>
+  <symbol id="ic-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2.5 19.5h19M9.5 16h5"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/></symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v14H6a2 2 0 0 0-2 2z"/><path d="M6 18a2 2 0 0 0-2 2M8 7h8M8 10.5h6"/></symbol>
+  <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap navbar">
+    <a class="brand" href="#top">
+      <span class="seal-mini">AF</span>
+      <span>Funcionarios BNA<small>Asociación · desde 1986</small></span>
+    </a>
+    <nav class="navlinks">
+      <a href="#beneficios">Beneficios</a>
+      <a href="#educacion">Educación</a>
+      <a href="#/catalogo">Catálogo</a>
+      <a href="#asociarte">Cómo asociarte</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="#/asociarme" class="btn btn-brass nav-cta">Asociarme</a>
+    <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema">◐</button>
+  </div>
+</header>
+
+<main id="top">
+<div class="view active" id="v-home">
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy reveal">
+      <span class="eyebrow" style="color:var(--brass-bright)">Personal jerárquico, profesional y técnico</span>
+      <h1>Ser parte <em>tiene beneficios</em></h1>
+      <p class="hero-lead">Desde 1986 acompañamos a la familia del Banco Nación con beneficios exclusivos en educación, turismo, bienestar y acompañamiento — para vos y los tuyos.</p>
+      <div class="hero-cta">
+        <a href="#/asociarme" class="btn btn-brass btn-lg">Quiero asociarme</a>
+        <a href="#beneficios" class="btn btn-ghost btn-lg">Conocer beneficios</a>
+      </div>
+      <div class="trust">
+        <div><div class="n">+39</div><div class="l">años acompañando a nuestra comunidad</div></div>
+        <div><div class="n">Nacional</div><div class="l">presencia en todo el país</div></div>
+        <div><div class="n">Familia</div><div class="l">beneficios para vos y los tuyos</div></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal" aria-hidden="true">
+      <div class="seal">
+        <div>
+          <div class="star">★ ★ ★</div>
+          <div class="yr">1986</div>
+          <div class="lab">Asociación de Funcionarios</div>
+        </div>
+      </div>
+      <div class="chip-float cf1"><span class="chip-ic"><svg class="ic"><use href="#ic-edu"/></svg></span> Becas y convenios</div>
+      <div class="chip-float cf2"><span class="chip-ic"><svg class="ic"><use href="#ic-bed"/></svg></span> Hoteles con descuento</div>
+      <div class="chip-float cf3"><span class="chip-ic"><svg class="ic"><use href="#ic-legal"/></svg></span> Asesoría legal</div>
+    </div>
+  </div>
+  <div class="hero-strip" aria-hidden="true">
+    <div class="wrap">
+      <span class="lbl">Convenios con</span>
+      <b>Universidad Siglo 21</b><b>UCASAL</b><b>UCES</b><b>UTN</b><b>TECLAB</b><b>UP Resistencia</b>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POR QUÉ SER SOCIO ===================== -->
+<section id="beneficios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">¿Por qué ser socio?</span>
+      <h2>Todo lo que necesitás, en un solo lugar</h2>
+      <p>Una membresía pensada para acompañarte en cada etapa. Mirá en 10 segundos todo lo que podés aprovechar.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-ic">🎓</div><h3>Educación</h3><p>Becas y convenios con universidades e institutos de todo el país.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🏨</div><h3>Turismo</h3><p>Hoteles adheridos con descuentos para disfrutar y descansar.</p></div>
+      <div class="why-card reveal"><div class="why-ic">⚖️</div><h3>Asesoría legal</h3><p>Orientación jurídica para las distintas situaciones de tu vida.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🤝</div><h3>Acción social</h3><p>Acompañamiento y subsidios en los momentos importantes.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🏙️</div><h3>Alojamiento</h3><p>Departamento en CABA para estadías temporarias de socios.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🏡</div><h3>Residencias</h3><p>Residencias adheridas para adultos mayores con beneficios.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🎁</div><h3>Sorteos</h3><p>Participación exclusiva en sorteos y premios para socios.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🌱</div><h3>Bienestar</h3><p>Cursos, idiomas y recursos para tu desarrollo personal.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ELEGÍ LO QUE NECESITÁS (navy) ===================== -->
+<section class="band-navy" id="educacion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Elegí lo que necesitás</span>
+      <h2>¿Qué estás buscando hoy?</h2>
+      <p>Entrá directo a la solución que necesitás, sin tener que conocer cómo está organizada la Asociación.</p>
+    </div>
+    <div class="needs-grid">
+      <a class="need reveal" href="#/catalogo"><span class="ndic">🎓</span><div><div class="q">Quiero estudiar</div><div class="a">Becas y convenios educativos</div></div><span class="arw">→</span></a>
+      <a class="need reveal" href="#/catalogo"><span class="ndic">✈️</span><div><div class="q">Quiero viajar</div><div class="a">Hoteles y turismo</div></div><span class="arw">→</span></a>
+      <a class="need reveal" href="#/catalogo"><span class="ndic">⚖️</span><div><div class="q">Necesito asesoramiento</div><div class="a">Asesoría legal</div></div><span class="arw">→</span></a>
+      <a class="need reveal" href="#/catalogo"><span class="ndic">🤝</span><div><div class="q">Atravieso una situación familiar</div><div class="a">Acción social</div></div><span class="arw">→</span></a>
+      <a class="need reveal" href="#/catalogo"><span class="ndic">🏙️</span><div><div class="q">Necesito alojamiento en CABA</div><div class="a">Departamento de socios</div></div><span class="arw">→</span></a>
+      <a class="need reveal" href="#/catalogo"><span class="ndic">🎁</span><div><div class="q">Quiero participar de sorteos</div><div class="a">Sorteos para socios</div></div><span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATÁLOGO ===================== -->
+<section id="catalogo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Catálogo de beneficios</span>
+      <h2>Descubrí todos tus beneficios</h2>
+      <p>Filtrá por lo que te interesa. El catálogo crece con cada nuevo convenio y propuesta.</p>
+    </div>
+    <div class="filters reveal" id="filters">
+      <button class="filter active" data-f="all">Todos</button>
+      <button class="filter" data-f="educacion">Educación</button>
+      <button class="filter" data-f="familia">Familia</button>
+      <button class="filter" data-f="turismo">Turismo</button>
+      <button class="filter" data-f="servicios">Servicios</button>
+      <button class="filter" data-f="social">Acción social</button>
+    </div>
+    <div class="cat-grid" id="catGrid">
+      <article class="cat-card reveal" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🎓</span></div><div class="cat-body"><h3>Universidad Siglo 21</h3><p>Descuentos para socios y familiares directos en carreras de grado y tecnicaturas.</p><span class="cat-link">Ver beneficio →</span></div></article>
+      <article class="cat-card reveal" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🎓</span></div><div class="cat-body"><h3>UCES</h3><p>Convenio con la Universidad de Ciencias Empresariales y Sociales.</p><span class="cat-link">Ver beneficio →</span></div></article>
+      <article class="cat-card reveal" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🎓</span></div><div class="cat-body"><h3>UCASAL</h3><p>Universidad Católica de Salta — modalidad presencial y a distancia.</p><span class="cat-link">Ver beneficio →</span></div></article>
+      <article class="cat-card reveal" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🏫</span></div><div class="cat-body"><h3>UTN Reconquista · UP Resistencia</h3><p>Convenios con universidades nacionales y populares del país.</p><span class="cat-link">Ver beneficio →</span></div></article>
+      <article class="cat-card reveal" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">💻</span></div><div class="cat-body"><h3>TECLAB</h3><p>Instituto Técnico Superior — tecnicaturas 100% online con beneficio para socios.</p><span class="cat-link">Ver beneficio →</span></div></article>
+      <article class="cat-card reveal" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Idiomas</span><span class="em">🗣️</span></div><div class="cat-body"><h3>Idiomas — Fund. Jerárquicos Salud</h3><p>Cursos de idiomas con condiciones preferenciales.</p><span class="cat-link">Ver beneficio →</span></div></article>
+      <article class="cat-card reveal" data-cat="familia"><div class="cat-top"><span class="cat-tag">Familia</span><span class="em">🎒</span></div><div class="cat-body"><h3>Becas para hijos</h3><p>Becas a la Excelencia y oportunidades educativas para hijos de socios.</p><span class="cat-link">Ver requisitos →</span></div></article>
+      <article class="cat-card reveal" data-cat="turismo"><div class="cat-top"><span class="cat-tag">Turismo</span><span class="em">🏨</span></div><div class="cat-body"><h3>Hoteles adheridos</h3><p>Red de hoteles en todo el país. Reservá directo presentando tu carnet y DNI.</p><span class="cat-link">Ver hoteles →</span></div></article>
+      <article class="cat-card reveal" data-cat="servicios"><div class="cat-top"><span class="cat-tag">Servicios</span><span class="em">🏙️</span></div><div class="cat-body"><h3>Departamento en CABA</h3><p>Alojamiento temporario para socios en la Ciudad de Buenos Aires.</p><span class="cat-link">Ver información →</span></div></article>
+      <article class="cat-card reveal" data-cat="familia"><div class="cat-top"><span class="cat-tag">Familia</span><span class="em">🏡</span></div><div class="cat-body"><h3>Residencias para adultos mayores</h3><p>Residencias adheridas con descuento para socios activos, adherentes y jubilados.</p><span class="cat-link">Ver opciones →</span></div></article>
+      <article class="cat-card reveal" data-cat="servicios"><div class="cat-top"><span class="cat-tag">Servicios</span><span class="em">⚖️</span></div><div class="cat-body"><h3>Asesoría legal</h3><p>Orientación jurídica para socios ante distintas situaciones.</p><span class="cat-link">Consultar →</span></div></article>
+      <article class="cat-card reveal" data-cat="social"><div class="cat-top"><span class="cat-tag">Acción social</span><span class="em">🤝</span></div><div class="cat-body"><h3>Fondo Solidario de Acción Social</h3><p>Subsidios y acompañamiento en los momentos importantes de la vida.</p><span class="cat-link">Ver reglamento →</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAMILIA ===================== -->
+<section class="reveal">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Beneficios para vos y tu familia</span>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);margin-top:14px">Tu membresía también acompaña a quienes más querés</h2>
+      <p class="muted" style="margin-top:16px;font-size:18px">Las becas, convenios y propuestas no son solo para el socio: alcanzan a tu familia directa.</p>
+      <div class="fam-tags">
+        <span>Familiares directos</span><span>Becas para hijos</span><span>Beneficios educativos</span>
+        <span>Acción social</span><span>Turismo</span><span>Bienestar</span><span>Residencias</span><span>Asesoramiento</span>
+      </div>
+    </div>
+    <div class="fam-visual" aria-hidden="true"><p class="quote">“Una asociación pensada para acompañarte a vos y a tu familia.”</p></div>
+  </div>
+</section>
+
+<!-- ===================== CÓMO ASOCIARTE ===================== -->
+<section class="band-navy" id="asociarte">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Cómo asociarte</span>
+      <h2>Empezá a disfrutar tus beneficios</h2>
+      <p>Un proceso simple y 100% online. Sin trámites por correo interno.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#eaf1f8"><h3>Completá el formulario</h3><p style="color:#a9bccf">Ingresá tus datos y comenzá el proceso de asociación.</p><span class="step-line">→</span></div>
+      <div class="step reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#eaf1f8"><h3>Enviá la documentación</h3><p style="color:#a9bccf">Adjuntás lo requerido de forma digital, sin moverte.</p><span class="step-line">→</span></div>
+      <div class="step reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#eaf1f8"><h3>Recibí la confirmación</h3><p style="color:#a9bccf">La Asociación procesa y valida tu solicitud.</p><span class="step-line">→</span></div>
+      <div class="step reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#eaf1f8"><h3>Disfrutá tus beneficios</h3><p style="color:#a9bccf">Accedé a todas las propuestas para socios.</p></div>
+    </div>
+    <div class="hero-cta" style="margin-top:38px">
+      <a href="#/asociarme" class="btn btn-brass btn-lg">Asociarme ahora</a>
+      <a href="#/asociarme" class="btn btn-ghost btn-lg" style="color:#eaf1f8;border-color:rgba(255,255,255,.3)">¿Quiénes pueden asociarse?</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DESTACADOS ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Novedades</span>
+      <h2>Beneficios destacados del mes</h2>
+      <p>Contenido que se actualiza para darte motivos de volver.</p>
+    </div>
+    <div class="hl-grid">
+      <div class="hl reveal"><span class="k">Sorteo</span><h3>Sorteo del mes</h3><p>Participá por premios exclusivos para socios.</p><span class="go">Participar →</span></div>
+      <div class="hl reveal"><span class="k">Educación</span><h3>Becas a la Excelencia 2026</h3><p>Conocé a los ganadores y las próximas convocatorias.</p><span class="go">Ver más →</span></div>
+      <div class="hl reveal"><span class="k">Turismo</span><h3>Nuevos hoteles adheridos</h3><p>Sumamos destinos con descuentos para tus vacaciones.</p><span class="go">Ver hoteles →</span></div>
+      <div class="hl reveal"><span class="k">Capacitación</span><h3>Nueva propuesta educativa</h3><p>Inscribite en las próximas actividades y convenios.</p><span class="go">Inscribirme →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section id="contacto">
+  <div class="wrap reveal">
+    <div class="cta-band">
+      <h2>Ser parte tiene beneficios</h2>
+      <p>Asociate y accedé a beneficios exclusivos en educación, turismo, bienestar, asesoramiento y acción social.</p>
+      <div class="hero-cta">
+        <a href="#/asociarme" class="btn btn-brass btn-lg">Asociarme ahora</a>
+        <a href="#" class="btn btn-ghost btn-lg" style="color:#fff;border-color:rgba(255,255,255,.35)">💬 Escribir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div><!--/v-home-->
+
+<!-- ===================== VIEW: CATÁLOGO ===================== -->
+<div class="view" id="v-catalogo">
+  <div class="subhero">
+    <div class="wrap">
+      <div class="crumb"><a href="#/">Inicio</a> / <span>Catálogo de beneficios</span></div>
+      <h1>Todos tus beneficios, en un solo lugar</h1>
+      <p>Buscá y filtrá entre convenios educativos, turismo, servicios y acompañamiento. El catálogo crece con cada nueva propuesta.</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="catSearch" type="text" placeholder="Buscar beneficio (ej: universidad, hotel, becas...)">
+      </div>
+      <div class="filters" id="filters2">
+        <button class="filter active" data-f="all">Todos</button>
+        <button class="filter" data-f="educacion">Educación</button>
+        <button class="filter" data-f="familia">Familia</button>
+        <button class="filter" data-f="turismo">Turismo</button>
+        <button class="filter" data-f="servicios">Servicios</button>
+        <button class="filter" data-f="social">Acción social</button>
+      </div>
+      <div class="cat-grid" id="catGrid2">
+        <article class="cat-card" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🎓</span></div><div class="cat-body"><h3>Universidad Siglo 21</h3><p>Descuentos para socios y familiares directos en carreras de grado y tecnicaturas.</p><span class="cat-link">Ver beneficio →</span></div></article>
+        <article class="cat-card" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🎓</span></div><div class="cat-body"><h3>UCES</h3><p>Convenio con la Universidad de Ciencias Empresariales y Sociales.</p><span class="cat-link">Ver beneficio →</span></div></article>
+        <article class="cat-card" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🎓</span></div><div class="cat-body"><h3>UCASAL</h3><p>Universidad Católica de Salta — presencial y a distancia.</p><span class="cat-link">Ver beneficio →</span></div></article>
+        <article class="cat-card" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🏫</span></div><div class="cat-body"><h3>UTN Reconquista</h3><p>Convenio con la Universidad Tecnológica Nacional.</p><span class="cat-link">Ver beneficio →</span></div></article>
+        <article class="cat-card" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">🏫</span></div><div class="cat-body"><h3>Universidad Popular Resistencia</h3><p>Oferta académica con beneficios para socios.</p><span class="cat-link">Ver beneficio →</span></div></article>
+        <article class="cat-card" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Educación</span><span class="em">💻</span></div><div class="cat-body"><h3>TECLAB</h3><p>Instituto Técnico Superior — tecnicaturas 100% online.</p><span class="cat-link">Ver beneficio →</span></div></article>
+        <article class="cat-card" data-cat="educacion"><div class="cat-top"><span class="cat-tag">Idiomas</span><span class="em">🗣️</span></div><div class="cat-body"><h3>Idiomas — Fund. Jerárquicos Salud</h3><p>Cursos de idiomas con condiciones preferenciales.</p><span class="cat-link">Ver beneficio →</span></div></article>
+        <article class="cat-card" data-cat="familia"><div class="cat-top"><span class="cat-tag">Familia</span><span class="em">🎒</span></div><div class="cat-body"><h3>Becas para hijos</h3><p>Becas a la Excelencia y oportunidades educativas para hijos de socios.</p><span class="cat-link">Ver requisitos →</span></div></article>
+        <article class="cat-card" data-cat="turismo"><div class="cat-top"><span class="cat-tag">Turismo</span><span class="em">🏨</span></div><div class="cat-body"><h3>Hoteles adheridos</h3><p>Red de hoteles en todo el país. Reservá con tu carnet y DNI.</p><span class="cat-link">Ver hoteles →</span></div></article>
+        <article class="cat-card" data-cat="servicios"><div class="cat-top"><span class="cat-tag">Servicios</span><span class="em">🏙️</span></div><div class="cat-body"><h3>Departamento en CABA</h3><p>Alojamiento temporario para socios en la Ciudad de Buenos Aires.</p><span class="cat-link">Ver información →</span></div></article>
+        <article class="cat-card" data-cat="familia"><div class="cat-top"><span class="cat-tag">Familia</span><span class="em">🏡</span></div><div class="cat-body"><h3>Residencias para adultos mayores</h3><p>Residencias adheridas con descuento para socios y jubilados.</p><span class="cat-link">Ver opciones →</span></div></article>
+        <article class="cat-card" data-cat="servicios"><div class="cat-top"><span class="cat-tag">Servicios</span><span class="em">⚖️</span></div><div class="cat-body"><h3>Asesoría legal</h3><p>Orientación jurídica para socios ante distintas situaciones.</p><span class="cat-link">Consultar →</span></div></article>
+        <article class="cat-card" data-cat="social"><div class="cat-top"><span class="cat-tag">Acción social</span><span class="em">🤝</span></div><div class="cat-body"><h3>Fondo Solidario de Acción Social</h3><p>Subsidios y acompañamiento en los momentos importantes.</p><span class="cat-link">Ver reglamento →</span></div></article>
+        <article class="cat-card" data-cat="servicios"><div class="cat-top"><span class="cat-tag">Servicios</span><span class="em">🎁</span></div><div class="cat-body"><h3>Sorteos para socios</h3><p>Participación exclusiva en sorteos y premios periódicos.</p><span class="cat-link">Ver más →</span></div></article>
+      </div>
+      <div class="no-res" id="noRes">No encontramos beneficios con ese criterio. Probá con otra palabra o categoría.</div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== VIEW: BENEFICIO ===================== -->
+<div class="view" id="v-beneficio">
+  <div class="subhero">
+    <div class="wrap">
+      <div class="crumb"><a href="#/">Inicio</a> / <a href="#/catalogo">Catálogo</a> / <span>Universidad Siglo 21</span></div>
+      <h1>Universidad Siglo 21</h1>
+      <p>Convenio educativo para socios y su familia directa. Ejemplo de cómo se vería una página de beneficio con el contenido completo.</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap detail-grid">
+      <div class="detail-body">
+        <span class="eyebrow">Educación · Convenio nacional</span>
+        <h2 style="margin-top:12px">Sobre el beneficio</h2>
+        <p>Como socio de la Asociación accedés a condiciones preferenciales en la oferta académica de la Universidad Siglo 21: carreras de grado, tecnicaturas y diplomaturas, en modalidad presencial y a distancia en todo el país.</p>
+        <h2>¿Qué incluye?</h2>
+        <ul>
+          <li>Descuento sobre el arancel para el socio y sus familiares directos.</li>
+          <li>Beneficio aplicable a carreras de grado y tecnicaturas.</li>
+          <li>Modalidad presencial y a distancia disponible en todo el país.</li>
+          <li>Asesoramiento para la inscripción a través de la Asociación.</li>
+        </ul>
+        <h2>Requisitos</h2>
+        <ul>
+          <li>Ser socio activo, adherente o jubilado con la cuota al día.</li>
+          <li>Presentar carnet de socio y DNI al momento de la inscripción.</li>
+          <li>Para familiares: acreditar el vínculo directo.</li>
+        </ul>
+        <p class="form-note" style="margin-top:24px">*Los porcentajes y condiciones exactas se completarán con los datos que aporte la Asociación. Este es un ejemplo de la estructura de la página.</p>
+      </div>
+      <aside class="aside-card">
+        <div class="em">🎓</div>
+        <h3>Universidad Siglo 21</h3>
+        <div class="meta">
+          <div><b>Categoría</b><span>Educación</span></div>
+          <div><b>Alcance</b><span>Socio + familia directa</span></div>
+          <div><b>Modalidad</b><span>Presencial y online</span></div>
+          <div><b>Cobertura</b><span>Todo el país</span></div>
+        </div>
+        <a href="#/asociarme" class="btn btn-brass">Asociarme para acceder</a>
+        <a href="#/catalogo" class="btn btn-ghost" style="margin-top:10px">← Volver al catálogo</a>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== VIEW: ASOCIARME (form) ===================== -->
+<div class="view" id="v-asociarme">
+  <div class="subhero">
+    <div class="wrap">
+      <div class="crumb"><a href="#/">Inicio</a> / <span>Asociarme</span></div>
+      <h1>Asociate 100% online</h1>
+      <p>Completá tus datos y en pocos pasos empezás a disfrutar de todos los beneficios. Sin trámites por correo interno.</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap form-wrap">
+      <div>
+        <form class="form-card" id="assocForm">
+          <div class="form-row">
+            <div class="field"><label>Nombre <span class="req">*</span></label><input required type="text" placeholder="Tu nombre"></div>
+            <div class="field"><label>Apellido <span class="req">*</span></label><input required type="text" placeholder="Tu apellido"></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>DNI <span class="req">*</span></label><input required type="text" inputmode="numeric" placeholder="Sin puntos"></div>
+            <div class="field"><label>Legajo BNA</label><input type="text" placeholder="Número de legajo"></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Email <span class="req">*</span></label><input required type="email" placeholder="tu@email.com"></div>
+            <div class="field"><label>Teléfono / WhatsApp <span class="req">*</span></label><input required type="tel" placeholder="+54 9 ..."></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Dependencia / Sucursal</label><input type="text" placeholder="Ej: Casa Central"></div>
+            <div class="field"><label>Categoría <span class="req">*</span></label>
+              <select required>
+                <option value="">Seleccioná...</option>
+                <option>Activo</option><option>Adherente</option><option>Jubilado</option>
+              </select>
+            </div>
+          </div>
+          <div class="field full" style="margin-bottom:16px"><label>¿Qué beneficios te interesan más?</label>
+            <input type="text" placeholder="Ej: becas para mis hijos, hoteles, capacitación...">
+            <span class="form-note">Nos ayuda a orientarte mejor. Opcional.</span>
+          </div>
+          <label class="checkrow"><input type="checkbox" required> Confirmo que los datos son correctos y acepto ser contactado por la Asociación para completar mi afiliación.</label>
+          <button type="submit" class="btn btn-brass btn-lg" style="width:100%;justify-content:center">Enviar solicitud de asociación</button>
+        </form>
+        <div class="success" id="assocOk">
+          <div class="tick">✓</div>
+          <h2 id="okName">¡Solicitud enviada!</h2>
+          <p>Recibimos tus datos. La Asociación se va a contactar a la brevedad para completar tu afiliación y darte acceso a los beneficios.</p>
+          <a href="#/" class="btn btn-ghost" style="margin-top:22px">Volver al inicio</a>
+        </div>
+      </div>
+      <div class="form-side">
+        <div class="side-box">
+          <h4>¿Quiénes pueden asociarse?</h4>
+          <ul>
+            <li>Personal jerárquico, profesional y técnico del Banco de la Nación Argentina.</li>
+            <li>Activos, adherentes y jubilados.</li>
+            <li>Alcance nacional, en todo el país.</li>
+          </ul>
+        </div>
+        <div class="side-box">
+          <h4>¿Preferís que te ayudemos?</h4>
+          <ul>
+            <li>Escribinos por WhatsApp y te guiamos paso a paso.</li>
+            <li>socios@funcionarios-bna.com.ar</li>
+            <li>+54 11 4345-2240 / 41 · Lun a Vie 9 a 17 hs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Asociación de Funcionarios BNA</div>
+        <p style="margin-top:12px;font-size:14.5px;max-width:38ch">Asociación Civil del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina. Desde 1986.</p>
+      </div>
+      <div>
+        <h4>Beneficios</h4>
+        <div class="foot-list">
+          <a href="#educacion">Educación y becas</a>
+          <a href="#/catalogo">Turismo y hoteles</a>
+          <a href="#/catalogo">Asesoría legal</a>
+          <a href="#/catalogo">Acción social</a>
+          <a href="#/catalogo">Sorteos</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <div class="foot-contact">
+          Bartolomé Mitre 311, 3º piso<br>CABA, Argentina<br>
+          socios@funcionarios-bna.com.ar<br>
+          +54 11 4345-2240 / 41<br>
+          Lun a Vie · 9:00 a 17:00 hs
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Asociación Civil del Personal Jerárquico, Profesional y Técnico del BNA.</span>
+      <span>Prototipo de propuesta — diseño en revisión.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="#" aria-label="WhatsApp" title="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.9 16 4.9S27 9.5 27 15 22.1 24.8 16 24.8zm5.4-6.9c-.3-.1-1.8-.9-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2.1c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+<div class="mobile-cta"><a href="#/asociarme" class="btn btn-brass">Asociarme</a></div>
+
+<script>
+(function(){
+  var root=document.documentElement, tb=document.getElementById('themeBtn');
+  tb.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    if(!cur){cur=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}
+    root.setAttribute('data-theme',cur==='dark'?'light':'dark');
+  });
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>10);},{passive:true});
+
+  // ---- swap emojis for modern line icons ----
+  var iconMap={'🎓':'edu','🏨':'bed','⚖️':'legal','⚖':'legal','🤝':'social','🏙️':'building','🏙':'building',
+    '🏡':'home','🎁':'gift','🌱':'spark','✈️':'plane','✈':'plane','🏫':'building','💻':'laptop',
+    '🗣️':'globe','🗣':'globe','🎒':'book'};
+  function svgFor(id,cls){return '<svg class="ic '+(cls||'')+'"><use href="#ic-'+id+'"/></svg>';}
+  [['.why-ic','ic-lg'],['.need .ndic','ic-lg'],['.cat-top .em','ic-xl'],['.aside-card .em','ic-xl']]
+  .forEach(function(pair){
+    document.querySelectorAll(pair[0]).forEach(function(el){
+      var key=(el.textContent||'').trim();
+      var id=iconMap[key]||iconMap[key.charAt(0)];
+      if(id)el.innerHTML=svgFor(id,pair[1]);
+    });
+  });
+
+  // reveal
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el,i){
+    if(el.parentElement&&el.parentElement.classList.contains('why-grid'))el.style.transitionDelay=(i%4*60)+'ms';
+    io.observe(el);
+  });
+
+  // ---- router ----
+  var routes={'':'v-home','#/':'v-home','#/catalogo':'v-catalogo','#/beneficio':'v-beneficio','#/asociarme':'v-asociarme'};
+  function showView(id){
+    document.querySelectorAll('.view').forEach(function(v){v.classList.toggle('active',v.id===id);});
+    var view=document.getElementById(id);
+    if(view) view.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  }
+  function route(){
+    var h=location.hash;
+    if(h && h.indexOf('#/')!==0){ // in-page anchor -> ensure home then scroll
+      showView('v-home');
+      var el=document.querySelector(h);
+      if(el) el.scrollIntoView({behavior:'smooth'});
+      return;
+    }
+    showView(routes[h]||'v-home');
+    window.scrollTo(0,0);
+  }
+  addEventListener('hashchange',route);
+  route();
+
+  // catalog card click -> benefit detail
+  document.addEventListener('click',function(e){
+    var card=e.target.closest('.cat-card');
+    if(card){ location.hash='#/beneficio'; }
+  });
+
+  // filters (both home + catalog page)
+  function wireFilter(filterId,gridId,noResId){
+    var filters=document.getElementById(filterId);
+    if(!filters)return;
+    var grid=document.getElementById(gridId);
+    var cards=grid.querySelectorAll('.cat-card');
+    var noRes=noResId?document.getElementById(noResId):null;
+    var current='all';
+    function apply(term){
+      term=(term||'').toLowerCase().trim();
+      var shown=0;
+      cards.forEach(function(c){
+        var okCat=current==='all'||c.dataset.cat===current;
+        var okTerm=!term||c.textContent.toLowerCase().indexOf(term)>-1;
+        var show=okCat&&okTerm;
+        c.style.display=show?'':'none';
+        if(show)shown++;
+      });
+      if(noRes)noRes.style.display=shown?'none':'block';
+    }
+    filters.addEventListener('click',function(e){
+      var b=e.target.closest('.filter'); if(!b)return;
+      filters.querySelectorAll('.filter').forEach(function(f){f.classList.remove('active');});
+      b.classList.add('active'); current=b.dataset.f;
+      apply(document.getElementById('catSearch')?document.getElementById('catSearch').value:'');
+    });
+    return apply;
+  }
+  wireFilter('filters','catGrid');
+  var applyCat=wireFilter('filters2','catGrid2','noRes');
+  var cs=document.getElementById('catSearch');
+  if(cs&&applyCat)cs.addEventListener('input',function(){applyCat(cs.value);});
+
+  // association form
+  var form=document.getElementById('assocForm');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=form.querySelector('input[type=text]').value.trim();
+      form.style.display='none';
+      var ok=document.getElementById('assocOk');
+      ok.style.display='block';
+      document.getElementById('okName').textContent=name?('¡Gracias, '+name+'!'):'¡Solicitud enviada!';
+      window.scrollTo(0,0);
+    });
+  }
+})();
+</script>

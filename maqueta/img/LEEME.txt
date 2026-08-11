@@ -1,0 +1,39 @@
+CARPETA DE IMÁGENES — Maqueta Funcionarios BNA
+===============================================
+
+Poné acá las imágenes con EXACTAMENTE estos nombres y aparecen solas en la web.
+Si un archivo no está, la tarjeta muestra el fondo de color con el ícono (placeholder).
+Formato recomendado: .jpg o .webp, livianas (bajo ~300 KB).
+
+BANNER PRINCIPAL (apaisadas, ~1920 x 900 px):
+  hero-1.jpg   -> "Ser parte tiene beneficios"
+  hero-2.jpg   -> Turismo / Patagonia
+  hero-3.jpg   -> Becas / educación
+
+TARJETAS DE NOTICIAS (apaisadas, ~800 x 520 px):
+
+  Institucional:
+    institucional-1.jpg ... institucional-6.jpg
+  Beneficios:
+    beneficios-1.jpg ... beneficios-6.jpg
+  Turismo (van en la subcarpeta img/turismo/ , por destino):
+    turismo/bariloche.png   -> Bariloche        [YA PUESTA]
+    turismo/salta1.jpeg     -> Salta            [YA PUESTA]
+    turismo/misiones.jpeg   -> Iguazú/Misiones  [YA PUESTA]
+    turismo/Mendoza.jpg     -> Mendoza          [YA PUESTA]
+    turismo/costa.jpg       -> Costa Atlántica  (falta: dejá el archivo con ese nombre)
+    turismo/caba.jpg        -> Depto. CABA      (falta: dejá el archivo con ese nombre)
+    (para otros destinos, dejá la foto en img/turismo/ y avisame el nombre)
+  Oportunidades:
+    oportunidades-1.jpg ... oportunidades-6.jpg
+
+  (Comunicados NO lleva imágenes: es un listado.)
+
+De dónde bajarlas (licencia libre para uso comercial):
+  - unsplash.com
+  - pexels.com
+  - pixabay.com
+Evitá Google Imágenes al azar (derechos de autor).
+
+También, cuando lo tengas:
+  logo.svg / logo.png  -> logo institucional (para reemplazar el "AF" del encabezado)

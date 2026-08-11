@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoteles adheridos — La Civil</title>
+<link rel="stylesheet" href="css/styles.css?v=5">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+</head>
+<body class="t-tur">
+
+<header class="nav" id="nav">
+  <div class="wrap navbar">
+    <a class="brand" href="index.html"><img class="brand-logo" src="img/logo-civil-lockup-dark.png" alt="la Civil"></a>
+    <nav class="navlinks">
+      <a href="institucional.html">Institucional</a>
+      <a href="beneficios.html">Beneficios</a>
+      <a href="turismo.html">Turismo</a>
+      <a href="hoteles.html" class="current">Hoteles</a>
+      <a href="oportunidades.html">Oportunidades</a>
+      <a href="index.html#asociarse">Socios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn menu-toggle" id="menuBtn" aria-label="Menú"><svg class="ic"><use href="#ic-menu"/></svg></button>
+      <button class="icon-btn" aria-label="Buscar"><svg class="ic ic-sm"><use href="#ic-search"/></svg></button>
+      <button class="icon-btn" id="themeBtn" aria-label="Tema">◐</button>
+      <a href="index.html#asociarse" class="btn btn-brass btn-lg">Asociarme</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="subhero">
+    <div class="wrap">
+      <div class="crumb"><a href="index.html">Inicio</a> › <a href="turismo.html">Turismo</a> › <span>Hoteles adheridos</span></div>
+      <span class="catchip"><svg class="ic ic-sm"><use href="#ic-bed"/></svg> Turismo</span>
+      <h1>Hoteles adheridos en todo el país</h1>
+      <p>Explorá el mapa o buscá tu destino. Como socio accedés a tarifas preferenciales presentando tu carnet y DNI. Reservás directamente con el establecimiento.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="hoteles-wrap">
+        <!-- MAP -->
+        <div class="mapbox">
+          <div id="leafmap"></div>
+        </div>
+
+        <!-- PANEL -->
+        <div class="hpanel">
+          <div class="hbar">
+            <div class="cnt"><b id="hcount">20 destinos</b> · <b id="htotal">44</b> hoteles</div>
+            <div class="hsearch">
+              <svg class="ic ic-sm"><use href="#ic-search"/></svg>
+              <input id="hsearch-input" type="text" placeholder="Buscar destino u hotel…">
+            </div>
+          </div>
+          <div class="hlist" id="hlist"></div>
+
+          <div class="resnote">
+            <svg class="ic"><use href="#ic-legal"/></svg>
+            <div>Las reservas y pagos se gestionan directamente con cada establecimiento, presentando el carnet de socio y el documento de identidad. Cada hotel puede tener condiciones particulares según períodos y temporadas.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand">La Civil</div><p style="margin-top:12px;font-size:14.5px;max-width:36ch">Asociación Civil del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina. Desde 1986.</p></div>
+      <div><h4>Novedades</h4><div class="foot-list"><a href="institucional.html">Institucional</a><a href="beneficios.html">Beneficios</a><a href="turismo.html">Turismo</a><a href="oportunidades.html">Oportunidades</a><a href="comunicados.html">Comunicados</a></div></div>
+      <div><h4>Turismo</h4><div class="foot-list"><a href="hoteles.html">Hoteles adheridos</a><a href="turismo.html">Novedades de turismo</a></div></div>
+      <div><h4>Contacto</h4><div class="foot-c">Bartolomé Mitre 311, 3º piso<br>CABA, Argentina<br>socios@funcionarios-bna.com.ar<br>+54 11 4345-2240 / 41<br>Lun a Vie · 9 a 17 hs</div></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Asociación Civil del Personal Jerárquico, Profesional y Técnico del BNA.</span><span>Maqueta de propuesta — diseño en revisión.</span></div>
+  </div>
+</footer>
+
+<a class="wa-float" href="#" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.9 16 4.9S27 9.5 27 15 22.1 24.8 16 24.8zm5.4-6.9c-.3-.1-1.8-.9-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2.1c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg></a>
+
+<script src="js/app.js?v=6"></script>
+<script src="js/mapa-data.js?v=2"></script>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="js/hoteles.js?v=4"></script>
+</body>
+</html>

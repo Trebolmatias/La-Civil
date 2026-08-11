@@ -1,0 +1,206 @@
+[
+
+	{
+		"id" : "Villa Carlos Paz",
+		"datos" : {
+			"wgs_84" : [-31.4210872,-64.4984393],
+			"hoteles" : ["Complejo de Cabañas 'La Aldea'", "Amerian Carlos Paz"],
+			"value": "Localidad",						 
+			"href":"hoteles_carlos_paz.php"
+		}
+	},
+
+	{
+		"id" : "Mar del Plata",
+		"datos" : {
+			"wgs_84" : [-37.734222, -57.5831141],
+			"hoteles" : ["Costa Galana","Bristol Condominio Apart Hotel","Iruña","Presidente","Hotel Riviera"],
+			"value": "Localidad",						 
+			"href":"hoteles_mardelplata.php"
+		}
+	},
+
+	{
+		"id" : "Salta",
+		"datos" : {
+			"wgs_84" : [-24.7857352, -65.4008562],
+			"hoteles" : ["Sheraton", "Hotel Brizo", "Viñas de Cafayate – Wine Resort", "Hotel Asturias", "Hotel Los Sauces"],
+			"value": "Localidad",						 
+			"href":"hoteles_salta.php"
+		}
+	},
+
+	{
+		"id" : "C.A.B.A.",
+		"datos" : {
+			"wgs_84" : [-34.5955529, -58.3819097],
+			"hoteles" : ["725 Continental Hotel", "Hotel Kenton Palace", "Flaat Apartamentos Recoleta Plaza", "Grand Brizo", "Hotel Alvear Icon", "Bel Air","Amerian Buenos Aires Park","Hotel Dolmen", "Hotel Lafayette"],
+			"value": "Localidad",						 
+			"href":"hoteles_caba.php"
+		}
+	},
+
+	{
+		"id" : "Neuquen",
+		"datos" : {
+			"wgs_84" : [-38.9410802,-68.185441],
+			"hoteles" : ["Hotel Comahue Business", "Hotel del Comahue "],
+			"value": "Localidad",						 
+			"href":"hoteles_neuquen.php"
+		}
+	},
+
+	{
+		"id" : "San Carlos de Bariloche",
+		"datos" : {
+			"wgs_84" : [-41.1280094,-71.4799994],
+			"hoteles" : ["Hotel Kenton Palace"],
+			"value": "Localidad",						 
+			"href":"hoteles_bariloche.php"
+		}
+	}
+
+	,
+
+	{
+		"id" : "La Plata",
+		"datos" : {
+			"wgs_84" : [-34.9204529,-57.9881899],
+			"hoteles" : ["Hotel Grand Brizo"],
+			"value": "Localidad",						 
+			"href":"hoteles_la_plata.php"
+		}
+	},
+
+	{
+		"id" : "Rosario",
+		"datos" : {
+			"wgs_84" : [-32.9403211, -60.639997],
+			"hoteles" : ["Ros Tower Hotel & Spa Convention Center", "Amerian Puerto Rosario Hotel", "1495 Apart Hotel Rosario"],
+			"value": "Localidad",						 
+			"href":"hoteles_rosario.php"
+		}
+	},
+
+	{
+		"id" : "Córdoba",
+		"datos" : {
+			"wgs_84" : [-31.420436,-64.1906827],
+			"hoteles" : ["Amerian Executive Cordoba"],
+			"value": "Localidad",						 
+			"href":"hoteles_cordoba.php"
+		}
+	},
+
+	{
+		"id" : "Villa María",
+		"datos" : {
+			"wgs_84" : [-32.3750731,-63.2389355],
+			"hoteles" : ["Amerian Villa María Park Hotel"],
+			"value": "Localidad",						 
+			"href":"hoteles_villa_maria.php"
+		}
+	},
+
+	{
+		"id" : "Mendoza",
+		"datos" : {
+			"wgs_84" : [-32.8924843,-68.8509832],
+			"hoteles" : ["Amerian Executive Mendoza", "San Martín Hotel & Spa"],
+			"value": "Localidad",						 
+			"href":"hoteles_mendoza.php"
+		}
+	},
+
+	{
+		"id" : "Tucuman",
+		"datos" : {
+			"wgs_84" : [-26.8244253,-65.2041062],
+			"hoteles" : ["Amerian Tucuman"],
+			"value": "Localidad",						 
+			"href":"hoteles_tucuman.php"
+		}
+	},
+
+	{
+		"id" : "Catamarca",
+		"datos" : {
+			"wgs_84" : [-28.607551,-66.0171316],
+			"hoteles" : ["Amerian Catamarca Park Hotel"],
+			"value": "Localidad",						 
+			"href":"hoteles_catamarca.php"
+		}
+	},
+
+	{
+		"id" : "Termas de Rio Hondo",
+		"datos" : {
+			"wgs_84" : [-27.4995914,-64.5605384],
+			"hoteles" : ["Amerian Hotel Casino Carlos V"],
+			"value": "Localidad",						 
+			"href":"hoteles_termas_rio_hondo.php"
+		}
+	},
+
+	{
+		"id" : "Paraná",
+		"datos" : {
+			"wgs_84" : [-31.7197915, -60.0383025],
+			"hoteles" : ["Hotel MaranSuites & Tower"],
+			"value": "Localidad",						 
+			"href":"hoteles_parana.php"
+		}
+	},
+
+	{
+		"id" : "Pto. Iguazú - Misiones",
+		"datos" : {
+			"wgs_84" : [-25.6174338,-54.6031959],
+			"hoteles" : ["Merit Iguazu"],
+			"value": "Localidad",						 
+			"href":"hoteles_pto_iguazu.php"
+		}
+	},
+
+	{
+		"id" : "Posadas",
+		"datos" : {
+			"wgs_84" : [-27.396305,-55.9595354],
+			"hoteles" : ["Urbano"],
+			"value": "Localidad",						 
+			"href":"hoteles_posadas.php"
+		}
+	},
+
+	{
+		"id" : "Santa Rosa",
+		"datos" : {
+			"wgs_84" : [-36.6240806,-64.2889782],
+			"hoteles" : ["Unit"],
+			"value": "Localidad",						 
+			"href":"hoteles_santa_rosa.php"
+		}
+	},
+
+	{
+		"id" : "Concordia",
+		"datos" : {
+			"wgs_84" : [-31.3981017,-58.0200689],
+			"hoteles" : ["Mayim Hotel Termal & Spa"],
+			"value": "Localidad",						 
+			"href":"hoteles_concordia.php"
+		}
+	},
+
+	{
+		"id" : "Victoria",
+		"datos" : {
+			"wgs_84" : [-32.6160184, -60.1859309],
+			"hoteles" : ["Sol Victoria Hotel Spa & Casino","El Molino","Mirador del Río","Campo y Golf"],
+			"value": "Localidad",						 
+			"href":"hoteles_victoria.php"
+		}
+	}
+	
+
+]

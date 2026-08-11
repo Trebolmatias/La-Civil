@@ -1,0 +1,21 @@
+Banner que tenga 3 para mover
+que las imágenes sean cuadradas o redondas
+chequear Pinterest en las imágenes -- pendiente
+curso de idiomas distinto tamaño de  beneficio para todos -- pendiente
+padding en las tarjetas
+en contacto arreglar el recuadro que es mas chico -pendiente
+poner modal para ingresar /log 
+sacar el beneficio por categoría delñ inicio ---pendiente
+en beneficio poner banner o sacar beneficio y que se vea el de categorías --- pendiente
+agregar en comisión directiva fotos y nombre de los principales ----mati
+ver lógica de sección institucional----mati
+logo de footer ponerlo en azul, no se ve en blanco
+poner el cosito de WA 
+saca la flecha para subir
+que el mapa de  turismo quede fijo
+chequear los hoteles que salen todos apretados
+a definir con Laura tema disponibilidad --- futuro
+modal de asociarme
+posible blog
+comentar noticias
+dejar testimonios
