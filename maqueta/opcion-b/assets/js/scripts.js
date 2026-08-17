@@ -8,10 +8,10 @@ Version      : 1.0
 	
 	jQuery(document).on('ready', function(){
 	
-		/*PRELOADER JS — la Civil: duración fija de 3 segundos */
+		/*PRELOADER JS — la Civil: duración fija de 1,5 s (≈2 s con el fundido) */
 		setTimeout(function(){
 			$('.preloaders').fadeOut(500);
-		}, 3000);
+		}, 1500);
 		/*END PRELOADER JS*/
 		
 		/*START MENU JS*/		
