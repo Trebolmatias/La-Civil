@@ -200,5 +200,54 @@
     if (navcur) navcur.classList.add('current');
   }
 
+  // ---------- NOTICIAS hub (todas las categorías) ----------
+  var newsRoot = document.getElementById('noticiaspage');
+  if (newsRoot) {
+    var all = [];
+    ORDER.forEach(function (slug) {
+      POSTS[slug].forEach(function (p) {
+        all.push({ slug: slug, cat: CATS[slug], title: p[0], date: p[1], img: p[2], excerpt: p[3] });
+      });
+    });
+    function ts(d) { var m = d.split('/'); return new Date(+m[2], +m[1] - 1, +m[0]).getTime(); }
+    all.sort(function (a, b) { return ts(b.date) - ts(a.date); });
+    function tagStyle(sc) { return ' style="background:var(--c-' + sc + '-bg);color:var(--c-' + sc + ')"'; }
+
+    var feat = null;
+    for (var k = 0; k < all.length; k++) { if (all[k].img) { feat = all[k]; break; } }
+    if (!feat) feat = all[0];
+
+    var featHtml = '<article class="feat-post reveal">' +
+      '<div class="ph">' + icon(feat.cat.icon, 'wm') + imgTag(feat.img, feat.title) + '</div>' +
+      '<div class="fp-body"><span class="tag"' + tagStyle(feat.cat.sc) + '>' + feat.cat.name + '</span>' +
+      '<h2>' + feat.title + '</h2><p>' + feat.excerpt + '</p>' +
+      '<div class="date">' + icon('ic-cal', 'ic-sm') + ' ' + feat.date + '</div>' +
+      '<a href="#" class="btn btn-brass btn-sm">Leer más</a></div></article>';
+
+    var grid = '<div class="news-grid">';
+    all.forEach(function (x) {
+      if (x === feat) return;
+      grid += '<article class="ncard reveal" data-c="' + x.slug + '"><div class="ph">' + icon(x.cat.icon, 'wm') + imgTag(x.img, x.title) + '</div>' +
+        '<div class="body"><span class="tag"' + tagStyle(x.cat.sc) + '>' + x.cat.name + '</span><h3>' + x.title + '</h3>' +
+        '<p class="excerpt">' + (x.excerpt || '') + '</p>' +
+        '<div class="date">' + icon('ic-cal', 'ic-sm') + ' ' + x.date + '</div></div></article>';
+    });
+    grid += '</div>';
+    newsRoot.innerHTML = featHtml + grid;
+
+    var nf = document.getElementById('nfilters');
+    if (nf) {
+      nf.addEventListener('click', function (e) {
+        var b = e.target.closest('.filter'); if (!b) return;
+        nf.querySelectorAll('.filter').forEach(function (f) { f.classList.remove('active'); });
+        b.classList.add('active');
+        var f = b.dataset.f;
+        newsRoot.querySelectorAll('.news-grid .ncard').forEach(function (c) {
+          c.style.display = (f === 'all' || c.dataset.c === f) ? '' : 'none';
+        });
+      });
+    }
+  }
+
   observeReveals();
 })();

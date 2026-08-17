@@ -3,21 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oportunidades — La Civil</title>
+<title>Noticias — La Civil</title>
 <link rel="stylesheet" href="css/styles.css?v=3">
+<style>
+  .nfilters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+  .nfilters .filter{font-family:var(--sans);font-weight:600;font-size:14px;padding:.5em 1.1em;border-radius:999px;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);cursor:pointer;transition:.2s}
+  .nfilters .filter:hover{color:var(--ink);border-color:var(--navy)}
+  .nfilters .filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+</style>
 </head>
-<body data-cat="oportunidades">
+<body>
 
 <header class="nav" id="nav">
   <div class="wrap navbar">
     <a class="brand" href="index.html"><img class="brand-logo" src="img/logo-civil-lockup-dark.png" alt="la Civil"></a>
     <nav class="navlinks">
-      <a href="institucional.html" data-cat="institucional">Institucional</a>
-      <a href="noticias.html">Noticias</a>
-      <a href="beneficios.html" data-cat="beneficios">Beneficios</a>
-      <a href="turismo.html" data-cat="turismo">Turismo</a>
+      <a href="institucional.html">Institucional</a>
+      <a href="noticias.html" class="current">Noticias</a>
+      <a href="beneficios.html">Beneficios</a>
+      <a href="turismo.html">Turismo</a>
       <a href="hoteles.html">Hoteles</a>
-      <a href="oportunidades.html" data-cat="oportunidades">Oportunidades</a>
+      <a href="oportunidades.html">Oportunidades</a>
       <a href="index.html#asociarse">Socios</a>
       <a href="index.html#contacto">Contacto</a>
     </nav>
@@ -31,36 +38,26 @@
 </header>
 
 <main>
-  <section class="subhero" id="catpage">
+  <section class="subhero">
     <div class="wrap">
-      <div class="crumb" id="sh-crumb"></div>
-      <span class="catchip" id="sh-chip"></span>
-      <h1 id="sh-title"></h1>
-      <p id="sh-desc"></p>
+      <div class="crumb"><a href="index.html">Inicio</a> › <span>Noticias</span></div>
+      <span class="catchip"><svg class="ic ic-sm"><use href="#ic-mega"/></svg> Novedades</span>
+      <h1>Noticias y novedades</h1>
+      <p>Todo lo que pasa en la Asociación en un solo lugar: vida institucional, beneficios, turismo, oportunidades y comunicados oficiales. Actualizamos el contenido cada semana.</p>
     </div>
   </section>
 
   <section>
-    <div class="wrap listing">
-      <div id="cat-main"></div>
-      <aside class="sidebar">
-        <div class="side-card">
-          <h4>Buscar en esta sección</h4>
-          <div style="display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:var(--surface-2)">
-            <svg class="ic ic-sm" style="color:var(--ink-soft)"><use href="#ic-search"/></svg>
-            <input type="text" placeholder="Palabra clave…" style="border:0;outline:0;background:transparent;font-family:var(--sans);font-size:14px;color:var(--ink);width:100%">
-          </div>
-        </div>
-        <div class="side-card">
-          <h4>Categorías</h4>
-          <div class="side-cats" id="side-cats"></div>
-        </div>
-        <div class="side-card side-news">
-          <h4>Sumate al newsletter</h4>
-          <p>Recibí las novedades y beneficios directamente en tu correo.</p>
-          <a href="#" class="btn btn-brass btn-sm">Suscribirme</a>
-        </div>
-      </aside>
+    <div class="wrap">
+      <div class="nfilters" id="nfilters">
+        <button class="filter active" data-f="all">Todas</button>
+        <button class="filter" data-f="institucional">Institucional</button>
+        <button class="filter" data-f="beneficios">Beneficios</button>
+        <button class="filter" data-f="turismo">Turismo</button>
+        <button class="filter" data-f="oportunidades">Oportunidades</button>
+        <button class="filter" data-f="comunicados">Comunicados</button>
+      </div>
+      <div id="noticiaspage"></div>
     </div>
   </section>
 </main>
@@ -69,8 +66,8 @@
   <div class="wrap">
     <div class="foot-grid">
       <div><div class="foot-brand">La Civil</div><p style="margin-top:12px;font-size:14.5px;max-width:36ch">Asociación Civil del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina. Desde 1986.</p></div>
-      <div><h4>Novedades</h4><div class="foot-list"><a href="institucional.html">Institucional</a><a href="beneficios.html">Beneficios</a><a href="turismo.html">Turismo</a><a href="oportunidades.html">Oportunidades</a><a href="comunicados.html">Comunicados</a></div></div>
-      <div><h4>Socios</h4><div class="foot-list"><a href="index.html#asociarse">Cómo asociarse</a><a href="index.html#catalogo">Beneficios</a><a href="#">Bonos</a><a href="#">Valores</a></div></div>
+      <div><h4>Institucional</h4><div class="foot-list"><a href="institucional.html">Nuestra Historia</a><a href="institucional.html">Comisión Directiva</a><a href="institucional.html">Estatuto</a></div></div>
+      <div><h4>Novedades</h4><div class="foot-list"><a href="noticias.html">Todas las noticias</a><a href="beneficios.html">Beneficios</a><a href="turismo.html">Turismo</a><a href="oportunidades.html">Oportunidades</a></div></div>
       <div><h4>Contacto</h4><div class="foot-c">Bartolomé Mitre 311, 3º piso<br>CABA, Argentina<br>socios@funcionarios-bna.com.ar<br>+54 11 4345-2240 / 41<br>Lun a Vie · 9 a 17 hs</div></div>
     </div>
     <div class="foot-bottom"><span>© 2026 Asociación Civil del Personal Jerárquico, Profesional y Técnico del BNA.</span><span>Maqueta de propuesta — diseño en revisión.</span></div>
