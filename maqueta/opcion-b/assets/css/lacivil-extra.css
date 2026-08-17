@@ -10,6 +10,38 @@
   #navigation.navbar-fixed{display:block!important;position:sticky!important;top:0}
 }
 
+/* ============================================================
+   Menú de escritorio en laptops (fix "se parte en 2 filas")
+   El template mostraba el menú horizontal desde ~1024px, pero
+   los 7 ítems + los botones no entran en una línea hasta ~1290px,
+   así que se partía en dos filas y "Ingresar" quedaba cortado.
+   Solución: menú hamburguesa hasta 1299px; menú horizontal en
+   una sola línea desde 1300px, usando el ancho disponible.
+   ============================================================ */
+
+/* Hasta 1299px: hamburguesa (oculta el menú y los botones de escritorio) */
+@media (max-width: 1299px){
+  #navigation .col-60{ display:none !important; }
+  #navigation .col-20.d-xl-block{ display:none !important; }
+  #sm_menu_ham{ display:block !important; }
+}
+/* Posición del hamburguesa en la franja tablet/laptop */
+@media (min-width: 992px) and (max-width: 1299px){
+  #sm_menu_ham{ position:absolute; top:40px; right:20px; }
+}
+
+/* Desde 1300px: menú horizontal en una sola línea, ocupando el ancho libre */
+@media (min-width: 1300px){
+  #sm_menu_ham, .sm_menu_outer{ display:none !important; }
+  #navigation .container-fluid > .row{ flex-wrap:nowrap; align-items:center; }
+  #navigation .row > .col-20:first-child{ flex:0 0 auto; width:auto; max-width:none; }
+  #navigation .row > .col-60{ flex:1 1 auto; width:auto; max-width:none; }
+  #navigation .row > .col-20.d-xl-block{ flex:0 0 auto; width:auto; max-width:none; padding-right:15px; }
+  #navigation #main-menu > ul{ white-space:nowrap; text-align:center; }
+  #navigation #main-menu ul li{ padding:0 8px; }
+  #navigation .header-btn{ margin-right:14px; }
+}
+
 /* (2) Imágenes uniformes: mismo borde redondeado en todo el contenido */
 .single_c_img img,
 .single_blog img,
