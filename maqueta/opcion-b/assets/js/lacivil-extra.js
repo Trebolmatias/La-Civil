@@ -96,7 +96,9 @@
         navigationText: ['&#8249;', '&#8250;'],
         pagination: true,
         slideSpeed: 600,
-        transitionStyle: 'fade'
+        transitionStyle: 'fade',
+        mouseDrag: true,
+        touchDrag: false   // permite el scroll vertical de la página en el celular
       });
     }
   });

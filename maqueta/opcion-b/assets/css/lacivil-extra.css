@@ -3,6 +3,13 @@
 /* (8) Ocultar la flecha "subir" del template (scroll lento) */
 #topcontrol{display:none!important}
 
+/* Menú fijo también en móvil/tablet (el template lo ocultaba al hacer scroll) */
+@media (max-width: 991px){
+  #navigation.site-navigation{position:sticky;top:0;z-index:1000;background:#fff;
+    box-shadow:0 3px 12px rgba(23,23,36,.07)}
+  #navigation.navbar-fixed{display:block!important;position:sticky!important;top:0}
+}
+
 /* (2) Imágenes uniformes: mismo borde redondeado en todo el contenido */
 .single_c_img img,
 .single_blog img,
