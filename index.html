@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>la Civil — Maquetas de propuesta</title>
+<style>
+  :root{
+    --bg:#0B2942; --bg2:#0E344F; --surface:#12304C; --ink:#EAF1F8; --ink-soft:#9FB4C8;
+    --line:#22415f; --brass:#CE9E3B; --celeste:#2AB6F5; --violeta:#7c86ff;
+    --serif:"Palatino Linotype","Iowan Old Style",Georgia,serif;
+    --sans:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);min-height:100vh;
+    background:radial-gradient(120% 90% at 80% -10%,rgba(42,182,245,.18),transparent 55%),
+      linear-gradient(160deg,var(--bg),#07203a);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px;gap:38px}
+  .head{text-align:center;max-width:640px}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:16px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,6vw,50px);line-height:1.1;letter-spacing:-.01em}
+  h1 span{color:var(--celeste)}
+  .sub{color:var(--ink-soft);font-size:17px;margin-top:16px;line-height:1.6}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;width:100%;max-width:860px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px 28px;
+    text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;
+    box-shadow:0 30px 70px -34px rgba(0,0,0,.7);transition:transform .2s,border-color .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+  .card.a:hover{border-color:var(--brass)}
+  .card.b:hover{border-color:var(--violeta)}
+  .tag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;
+    border-radius:999px;align-self:flex-start}
+  .card.a .tag{background:rgba(206,158,59,.16);color:var(--brass)}
+  .card.b .tag{background:rgba(124,134,255,.18);color:var(--violeta)}
+  .card h2{font-family:var(--serif);font-weight:600;font-size:26px}
+  .card p{color:var(--ink-soft);font-size:15px;line-height:1.55;flex:1}
+  .go{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-top:6px}
+  .card.a .go{color:var(--brass)}
+  .card.b .go{color:var(--violeta)}
+  .go span{transition:transform .2s}
+  .card:hover .go span{transform:translateX(5px)}
+  .foot{color:var(--ink-soft);font-size:13px;text-align:center;opacity:.75;max-width:560px}
+  .foot b{color:var(--ink)}
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="eyebrow">Maquetas de propuesta · uso interno</div>
+    <h1><span>la Civil</span><br>Dos propuestas de sitio web</h1>
+    <p class="sub">Asociación del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina. Elegí una opción para verla en detalle.</p>
+  </div>
+
+  <div class="cards">
+    <a class="card a" href="maqueta/index.html">
+      <span class="tag">Opción A</span>
+      <h2>Institucional y elegante</h2>
+      <p>Diseño sobrio con identidad propia: azul marino y bronce, tipografía editorial. Transmite tradición y confianza, con las noticias como eje.</p>
+      <span class="go">Ver Opción A <span>→</span></span>
+    </a>
+    <a class="card b" href="maqueta/opcion-b/index.html">
+      <span class="tag">Opción B</span>
+      <h2>Moderna y llamativa</h2>
+      <p>Diseño colorido y dinámico: violeta y coral, con banner animado, mapa de hoteles interactivo y mucho movimiento. Más audaz y vistosa.</p>
+      <span class="go">Ver Opción B <span>→</span></span>
+    </a>
+  </div>
+
+  <p class="foot">Para que todo se vea bien (fuentes, íconos y el mapa de hoteles) es necesario tener <b>conexión a internet</b>. Maqueta en revisión — el contenido es de referencia.</p>
+</body>
+</html>
