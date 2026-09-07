@@ -9,3 +9,10 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 *.tmp
+
+# Desarrollo Django (Fase 1) — no versionar entorno ni base local
+.venv/
+sitio/
+__pycache__/
+*.pyc
+db.sqlite3
