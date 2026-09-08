@@ -152,9 +152,9 @@ ul{list-style:none;}
 
 /* ============ Overrides la Civil (globales, todas las páginas) ============ */
 /* Preloader: monograma de la Civil girando (reemplaza la bicicleta) */
-.preloaders{background:#0B2942}
+.preloaders{background:#ffffff}
 .loader{width:100px!important;height:100px!important;margin:30px auto!important;
-	background:url(../img/lacivil/logo-civil-mark.png) center/contain no-repeat!important;
+	background:url(../img/lacivil/isotipo.svg) center/contain no-repeat!important;
 	animation:rotation 1.1s linear infinite!important;box-sizing:border-box}
 .loader::after,.loader::before{content:none!important;display:none!important;border:0!important;background:none!important;animation:none!important}
 /* Logo del navbar un poco más grande (no compactado) */

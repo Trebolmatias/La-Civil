@@ -23,7 +23,7 @@
 		<style>
 			.site-logo img{height:40px;width:auto}
 			.footer .single_footer > a img{height:46px;width:auto;margin-bottom:14px}
-			.lc-article-hero{width:100%;height:340px;object-fit:cover;border-radius:16px;margin:0 0 26px}
+			.lc-article-hero{width:100%;height:auto;display:block;border-radius:16px;margin:0 0 26px}
 			.lc-meta{font-size:14px;color:#525fe1;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
 			.lc-meta a{color:#525fe1}
 			.lc-article h2{font-size:30px;line-height:1.2;margin:0 0 18px;color:#0b104a}
@@ -32,7 +32,29 @@
 			.lc-quote{border-left:4px solid #525fe1;background:#f2f3ff;padding:16px 22px;border-radius:0 12px 12px 0;font-size:19px;font-style:italic;color:#0b104a;margin:26px 0}
 			.lc-quote span{display:block;font-size:14px;font-style:normal;font-weight:600;color:#525fe1;margin-top:8px}
 			.lc-article .btn_one{margin-top:20px;display:inline-block}
-			@media (max-width:600px){ .lc-article-hero{height:220px} .lc-article h2{font-size:24px} }
+			@media (max-width:600px){ .lc-article h2{font-size:24px} }
+
+			/* Reacciones + comentarios (demo de comunidad · Fase 3) */
+			.lc-comments{max-width:720px;margin:34px auto 0;padding-top:26px;border-top:1px solid #e6e6f1}
+			.lc-react{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+			.lc-react button{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #dfe0ee;border-radius:999px;padding:9px 18px;font-size:15px;font-weight:600;color:#0b104a;cursor:pointer;font-family:inherit;transition:.15s}
+			.lc-react button:hover{border-color:#525fe1;color:#525fe1}
+			.lc-react button.on{background:#eceeff;border-color:#525fe1;color:#525fe1}
+			.lc-react button b{font-weight:800}
+			.lc-comments h3{font-size:20px;color:#0b104a;margin:0 0 18px}
+			.lc-comments h3 span{color:#525fe1}
+			.lc-comment{display:flex;gap:14px;margin-bottom:20px}
+			.lc-av{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:#525fe1;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px}
+			.lc-c-body{flex:1}
+			.lc-c-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+			.lc-c-head b{color:#0b104a;font-size:15.5px}
+			.lc-c-head .socio{font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#0f9d78;background:#eafaf3;padding:2px 8px;border-radius:6px}
+			.lc-c-head time{font-size:13px;color:#8a90ab}
+			.lc-c-body p{margin:0;font-size:15.5px;color:#4a4f6a;line-height:1.6}
+			.lc-loginbox{background:#f6f6fb;border:1px solid #e6e6f1;border-radius:14px;padding:22px 24px;text-align:center;margin-top:8px}
+			.lc-loginbox p{margin:0 0 14px;color:#4a4f6a;font-size:15.5px}
+			.lc-loginbox p b{color:#0b104a}
+			.lc-loginbox .btn_one{display:inline-block}
 		</style>
 	</head>
 
@@ -124,6 +146,45 @@
 
 							<a class="btn_one" href="noticias.html"><i class="ti-arrow-left"></i> Volver a Noticias</a>
 						</article>
+
+						<!-- REACCIONES + COMENTARIOS (demostración de la comunidad · Fase 3) -->
+						<div class="lc-comments">
+							<div class="lc-react">
+								<button type="button" id="lcLike">👍 Me gusta <b>(24)</b></button>
+								<button type="button" id="lcUseful">✅ Me sirve <b>(15)</b></button>
+							</div>
+
+							<h3>Comentarios <span>(3)</span></h3>
+
+							<div class="lc-comment">
+								<div class="lc-av">MG</div>
+								<div class="lc-c-body">
+									<div class="lc-c-head"><b>María Gómez</b> <span class="socio">Socia</span> <time>hace 2 horas</time></div>
+									<p>¡Feliz día a todas las maestras y maestros! Gracias por el homenaje. 👏</p>
+								</div>
+							</div>
+
+							<div class="lc-comment">
+								<div class="lc-av">JF</div>
+								<div class="lc-c-body">
+									<div class="lc-c-head"><b>Jorge Fernández</b> <span class="socio">Socio</span> <time>hace 5 horas</time></div>
+									<p>Muy lindo. Mi hija es docente y se lo voy a compartir. Un orgullo la Asociación siempre acompañando la educación.</p>
+								</div>
+							</div>
+
+							<div class="lc-comment">
+								<div class="lc-av">LP</div>
+								<div class="lc-c-body">
+									<div class="lc-c-head"><b>Laura Pereyra</b> <span class="socio">Socia</span> <time>ayer</time></div>
+									<p>Aprovecho para consultar por las becas para hijos de socios, ¿siguen abiertas? ¡Gracias!</p>
+								</div>
+							</div>
+
+							<div class="lc-loginbox">
+								<p><b>Los comentarios son exclusivos para socios.</b><br>Iniciá sesión para dejar el tuyo.</p>
+								<a class="btn_one" data-open="lcLogin" style="cursor:pointer">Ingresar para comentar</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -194,5 +255,21 @@
 		<script src="assets/js/wow.min.js"></script>
 		<script src="assets/js/scripts.js"></script>
 		<script src="assets/js/lacivil-extra.js"></script>
+		<script>
+			/* Demo: reacciones que suben al hacer clic (Fase 3 real con login de socios) */
+			(function(){
+				function wire(id, base){
+					var b = document.getElementById(id); if(!b) return;
+					var on = false;
+					b.addEventListener('click', function(){
+						on = !on;
+						b.classList.toggle('on', on);
+						b.querySelector('b').textContent = '(' + (base + (on ? 1 : 0)) + ')';
+					});
+				}
+				wire('lcLike', 24);
+				wire('lcUseful', 15);
+			})();
+		</script>
 	</body>
 </html>
