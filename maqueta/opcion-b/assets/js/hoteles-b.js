@@ -31,9 +31,9 @@
 
   // ---- map ----
   var map = L.map(host, { scrollWheelZoom: false, zoomControl: true }).setView([-38, -63], 4);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd', maxZoom: 19,
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    subdomains: 'abc', maxZoom: 19,
+    attribution: '&copy; OpenStreetMap'
   }).addTo(map);
   map.on('click', function(){ map.scrollWheelZoom.enable(); });   // habilita zoom con rueda al interactuar
 
