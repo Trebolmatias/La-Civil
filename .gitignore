@@ -16,3 +16,6 @@ sitio/
 __pycache__/
 *.pyc
 db.sqlite3
+
+# Relevamiento interno (no publicar en el repo público)
+research/
