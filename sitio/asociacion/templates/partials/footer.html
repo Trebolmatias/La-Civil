@@ -1,0 +1,69 @@
+{% load static %}
+{# FOOTER — Opción B. TODO: reemplazar los href="#" por URLs de páginas Wagtail a medida que se creen. #}
+<div id="contacto" class="footer section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="single_footer">
+                    <a href="/"><img src="{% static 'img/lacivil/isotipo.svg' %}" alt="Asociación del Personal Jerárquico del Banco Nación"></a>
+                    <p>Asociación Civil del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina. Desde 1986.</p>
+                    <div class="social_profile">
+                        <ul>
+                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="single_footer">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#comision">Comisión Directiva</a></li>
+                        <li><a href="#">Estatuto</a></li>
+                        <li><a href="#">Historia</a></li>
+                        <li><a href="#">Noticias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="single_footer">
+                    <h4>Beneficios</h4>
+                    <ul>
+                        <li><a href="#">Farmacias y salud</a></li>
+                        <li><a href="#">Turismo y hotelería</a></li>
+                        <li><a href="#">Capacitación</a></li>
+                        <li><a href="#">Convenios</a></li>
+                        <li><a href="#">Oportunidades</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="single_footer">
+                    <h4>Contacto</h4>
+                    <div class="sf_contact">
+                        <span class="ti-map"></span>
+                        <p>Bartolomé Mitre 311, 3º — CABA</p>
+                    </div>
+                    <div class="sf_contact">
+                        <span class="ti-mobile"></span>
+                        <p><a href="tel:+541143452240">+54 11 4345-2240 / 41</a></p>
+                    </div>
+                    <div class="sf_contact">
+                        <span class="ti-email"></span>
+                        <p><a href="mailto:socios@funcionarios-bna.com.ar">socios@funcionarios-bna.com.ar</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# COPYRIGHT #}
+<div class="foot_copy">
+    <div class="footer_copyright">
+        <p>&copy; {% now "Y" %} Asociación del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina.</p>
+    </div>
+</div>

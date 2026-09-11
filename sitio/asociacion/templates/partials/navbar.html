@@ -1,0 +1,53 @@
+{% load static %}
+{# NAVBAR — Opción B. TODO: reemplazar los href="#" por {% url %} / URLs de páginas Wagtail a medida que se creen. #}
+<div id="navigation" class="navbar-light bg-faded site-navigation">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-20 align-self-center">
+                <div class="site-logo">
+                    <a href="/"><img src="{% static 'img/lacivil/isotipo.svg' %}" alt="Asociación del Personal Jerárquico del Banco Nación"></a>
+                </div>
+            </div>
+            <div class="col-60 d-flex">
+                <nav id="main-menu">
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li class="menu-item-has-children"><a href="#">Institucional</a>
+                            <ul>
+                                <li><a href="#">Quiénes somos</a></li>
+                                <li><a href="#comision">Comisión Directiva</a></li>
+                                <li><a href="#">Estatuto</a></li>
+                                <li><a href="#">Historia</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Noticias</a></li>
+                        <li><a href="#">Beneficios</a></li>
+                        <li><a href="#">Turismo</a></li>
+                        <li><a href="#">Capacitación</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-20 d-none d-xl-block text-end align-self-center">
+                <a href="#" class="header-btn">Ingresar</a>
+                <a href="#" data-open="lcRegister" class="btn_one">Asociarme</a>
+            </div>
+            <ul class="mobile_menu">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="#">Institucional</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#comision">Comisión Directiva</a></li>
+                        <li><a href="#">Estatuto</a></li>
+                        <li><a href="#">Historia</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Beneficios</a></li>
+                <li><a href="#">Turismo</a></li>
+                <li><a href="#">Capacitación</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
