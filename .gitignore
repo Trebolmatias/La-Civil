@@ -10,12 +10,15 @@ Desktop.ini
 .DS_Store
 *.tmp
 
-# Desarrollo Django (Fase 1) — no versionar entorno ni base local
+# Desarrollo Django (Fase 1) — el proyecto sitio/ SÍ se versiona;
+# solo se excluyen entorno, base local, secretos y archivos regenerables.
 .venv/
-sitio/
 __pycache__/
 *.pyc
 db.sqlite3
+sitio/static/                        # STATIC_ROOT (collectstatic) — regenerable
+sitio/media/                         # uploads de usuarios
+sitio/asociacion/settings/local.py   # secretos de producción (SECRET_KEY real, etc.)
 
 # Relevamiento interno (no publicar en el repo público)
 research/
