@@ -22,3 +22,18 @@ class TurismoPage(Page):
 
     class Meta:
         verbose_name = "Página de Turismo"
+
+
+class InstitucionalPage(Page):
+    """Página Institucional: Quiénes somos, Comisión Directiva y Estatuto.
+
+    El contenido (comisión, estatuto) se mantiene en el template por ser
+    institucional/legal y de cambio poco frecuente.
+    """
+
+    parent_page_types = ["home.HomePage"]
+    subpage_types = []
+    max_count = 1
+
+    class Meta:
+        verbose_name = "Página Institucional"

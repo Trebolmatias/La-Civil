@@ -1,0 +1,34 @@
+/* Estilos de la página Institucional (Comisión Directiva + Estatuto), de la maqueta Opción B */
+.ab_img img{border-radius:16px}
+
+/* Comisión Directiva */
+.cd-wrap{max-width:1000px;margin:0 auto}
+.cd-label{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#525fe1;margin:40px 0 18px;text-align:center}
+.cd-mesa{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cd-card{background:#fff;border:1px solid #ececf5;border-radius:14px;padding:20px 22px;box-shadow:0 12px 26px -18px rgba(23,23,36,.22)}
+.cd-card .role{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#525fe1;margin-bottom:5px}
+.cd-card .name{font-size:16px;font-weight:700;color:#0B2942;line-height:1.25}
+.cd-card.pres{background:linear-gradient(135deg,#525fe1,#3a44c9);border-color:transparent;box-shadow:0 16px 34px -16px rgba(82,95,225,.6)}
+.cd-card.pres .role{color:#d3d7ff}
+.cd-card.pres .name{color:#fff}
+.cd-list{columns:3;column-gap:28px;list-style:none;padding:0;margin:0}
+.cd-list li{break-inside:avoid;padding:8px 0 8px 20px;position:relative;font-size:14.5px;color:#2a3450;border-bottom:1px solid #eef0f7}
+.cd-list li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:#525fe1}
+.cd-fisc{display:grid;grid-template-columns:1fr 1fr;gap:34px;max-width:720px;margin:0 auto}
+.cd-fisc ul{list-style:none;padding:0;margin:0}
+@media(max-width:768px){.cd-mesa{grid-template-columns:1fr 1fr}.cd-list{columns:2}.cd-fisc{grid-template-columns:1fr;gap:8px}}
+@media(max-width:480px){.cd-mesa{grid-template-columns:1fr}.cd-list{columns:1}}
+
+/* Estatuto (acordeón) */
+.est-wrap{max-width:900px;margin:0 auto}
+.est-intro{background:#eef0fb;border-left:4px solid #525fe1;border-radius:12px;padding:16px 20px;font-size:14px;color:#3a3f63;margin-bottom:22px;line-height:1.6}
+.est-acc details{background:#fff;border:1px solid #e6e8f2;border-radius:12px;margin-bottom:12px;overflow:hidden}
+.est-acc summary{cursor:pointer;list-style:none;padding:16px 46px 16px 20px;font-family:'Jost',sans-serif;font-weight:700;font-size:15px;color:#0b104a;position:relative}
+.est-acc summary::-webkit-details-marker{display:none}
+.est-acc summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:400;color:#525fe1;line-height:1}
+.est-acc details[open]>summary::after{content:"\2013"}
+.est-acc details[open]>summary{border-bottom:1px solid #eef0f7}
+.est-acc .acc-body{padding:16px 20px 20px}
+.est-acc .art{font-size:13.5px;line-height:1.7;color:#39415a;margin:0 0 14px}
+.est-acc .art:last-child{margin-bottom:0}
+.est-acc .art b{color:#0b104a}
