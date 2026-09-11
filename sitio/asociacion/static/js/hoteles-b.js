@@ -6,26 +6,26 @@
 
   // foto por destino (para la tarjeta lateral) — rutas relativas a /opcion-b/
   var IMG = {
-    'San Carlos de Bariloche': '../img/turismo/bariloche.png',
-    'Salta': '../img/turismo/salta1.jpeg',
-    'Mendoza': '../img/turismo/Mendoza.jpg',
-    'Pto. Iguazú - Misiones': '../img/turismo/misiones.jpeg',
-    'Mar del Plata': '../img/turismo/costa.jpg',
-    'C.A.B.A.': '../img/turismo/caba.jpg',
-    'Concordia': '../img/turismo/concordia.jpeg',
-    'Catamarca': '../img/turismo/catamarca.jpg',
-    'La Plata': '../img/turismo/la_plata.jpg',
-    'Neuquen': '../img/turismo/neuquen.png',
-    'Paraná': '../img/turismo/parana.jpg',
-    'Posadas': '../img/turismo/posadas.jpg',
-    'Victoria': '../img/turismo/victoria.jpg',
-    'Rosario': '../img/turismo/Rosario.jpg',
-    'Villa Carlos Paz': '../img/turismo/Villa_Carlos_Paz.jpg',
-    'Córdoba': '../img/turismo/Cordoba.jpg',
-    'Villa María': '../img/turismo/Villa_María.jpg',
-    'Tucuman': '../img/turismo/Tucuman.jpg',
-    'Termas de Rio Hondo': '../img/turismo/Termas_de_Rio_Hondo.jpg',
-    'Santa Rosa': '../img/turismo/santa_rosa.jpg'
+    'San Carlos de Bariloche': '/static/img/turismo/bariloche.png',
+    'Salta': '/static/img/turismo/salta1.jpeg',
+    'Mendoza': '/static/img/turismo/Mendoza.jpg',
+    'Pto. Iguazú - Misiones': '/static/img/turismo/misiones.jpeg',
+    'Mar del Plata': '/static/img/turismo/costa.jpg',
+    'C.A.B.A.': '/static/img/turismo/caba.jpg',
+    'Concordia': '/static/img/turismo/concordia.jpeg',
+    'Catamarca': '/static/img/turismo/catamarca.jpg',
+    'La Plata': '/static/img/turismo/la_plata.jpg',
+    'Neuquen': '/static/img/turismo/neuquen.png',
+    'Paraná': '/static/img/turismo/parana.jpg',
+    'Posadas': '/static/img/turismo/posadas.jpg',
+    'Victoria': '/static/img/turismo/victoria.jpg',
+    'Rosario': '/static/img/turismo/Rosario.jpg',
+    'Villa Carlos Paz': '/static/img/turismo/Villa_Carlos_Paz.jpg',
+    'Córdoba': '/static/img/turismo/Cordoba.jpg',
+    'Villa María': '/static/img/turismo/Villa_María.jpg',
+    'Tucuman': '/static/img/turismo/Tucuman.jpg',
+    'Termas de Rio Hondo': '/static/img/turismo/Termas_de_Rio_Hondo.jpg',
+    'Santa Rosa': '/static/img/turismo/santa_rosa.jpg'
   };
   function plural(n){ return n + ' hotel' + (n > 1 ? 'es' : ''); }
 
@@ -49,7 +49,7 @@
     m.bindPopup(
       '<div class="pop"><div class="pop-title">' + loc.id + '</div>' +
       '<div class="pop-sub">' + plural(n) + '</div><ul>' + hotelsHtml + '</ul>' +
-      '<a class="pop-cta" href="contacto.html">Reservar con tu carnet →</a></div>',
+      '<a class="pop-cta" href="#">Reservar con tu carnet →</a></div>',
       { maxWidth: 260 }
     );
     m.bindTooltip(loc.id + ' · ' + plural(n), { direction: 'top', offset: [0, -14] });

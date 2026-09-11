@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-turismopage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'vendor/leaflet/leaflet.css' %}">
+<link rel="stylesheet" href="{% static 'css/mapa.css' %}">
+{% endblock %}
+
+{% block content %}
+		<!-- SECTION TOP -->
+		<section class="section-top">
+			<div class="container">
+				<div class="col-lg-10 offset-lg-1 text-center">
+					<div class="section-top-title">
+						<h1>{{ page.title }}</h1>
+						<ul><li><a href="/">Inicio</a></li><li> / {{ page.title }}</li></ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- INTRO -->
+		<section class="ab_area section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+						<div class="ab_img"><img src="{% static 'img/lacivil/destino-bariloche.jpg' %}" class="img-fluid" alt="Turismo"></div>
+					</div>
+					<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="ab_content">
+							<h2>Vacaciones y descansos en todo el país</h2>
+							{% if page.intro %}{{ page.intro|richtext }}{% else %}<p>Como socio accedés a <b>44 hoteles adheridos</b> en <b>20 destinos</b> de <b>14 provincias</b>, con tarifas preferenciales para vos y tu familia. Reservá con tu carnet de socio.</p>{% endif %}
+							<ul>
+								<li><span class="ti-check"></span> Descuentos exclusivos para socios</li>
+								<li><span class="ti-check"></span> Destinos de Patagonia, Norte, Cuyo y Litoral</li>
+								<li><span class="ti-check"></span> Atención personalizada para tu reserva</li>
+							</ul>
+							<a class="btn_one" href="#">Consultá disponibilidad <i class="ti-arrow-top-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- DESTINOS -->
+		<section class="team_area section-padding" style="background-image: url({% static 'img/bg/shape-1.png' %}); background-size:cover; background-position: center center;">
+			<div class="container">
+				<div class="section-title text-center">
+					<h2>Destinos destacados</h2>
+					<p>Algunos de los destinos más elegidos por nuestros socios.</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content"><a href="#"><img src="{% static 'img/lacivil/destino-bariloche.jpg' %}" alt="Bariloche"></a></div>
+							<div class="team-prof"><h3>Bariloche</h3><span>Río Negro · Patagonia</span></div>
+							<div class="sth_det2"><span class="ti-home"> <u>Hoteles adheridos</u></span></div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content"><a href="#"><img src="{% static 'img/lacivil/destino-salta.jpg' %}" alt="Salta"></a></div>
+							<div class="team-prof"><h3>Salta</h3><span>Norte argentino</span></div>
+							<div class="sth_det2"><span class="ti-home"> <u>Hoteles adheridos</u></span></div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content"><a href="#"><img src="{% static 'img/lacivil/destino-mendoza.jpg' %}" alt="Mendoza"></a></div>
+							<div class="team-prof"><h3>Mendoza</h3><span>Cuyo</span></div>
+							<div class="sth_det2"><span class="ti-home"> <u>Hoteles adheridos</u></span></div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content"><a href="#"><img src="{% static 'img/lacivil/destino-cataratas.jpg' %}" alt="Cataratas del Iguazú"></a></div>
+							<div class="team-prof"><h3>Cataratas</h3><span>Misiones · Litoral</span></div>
+							<div class="sth_det2"><span class="ti-home"> <u>Hoteles adheridos</u></span></div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content"><a href="#"><img src="{% static 'img/lacivil/destino-cordoba.jpg' %}" alt="Córdoba"></a></div>
+							<div class="team-prof"><h3>Córdoba</h3><span>Sierras</span></div>
+							<div class="sth_det2"><span class="ti-home"> <u>Hoteles adheridos</u></span></div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content"><a href="#"><img src="{% static 'img/lacivil/destino-carlospaz.jpg' %}" alt="Villa Carlos Paz"></a></div>
+							<div class="team-prof"><h3>Villa Carlos Paz</h3><span>Córdoba</span></div>
+							<div class="sth_det2"><span class="ti-home"> <u>Hoteles adheridos</u></span></div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content"><a href="#"><img src="{% static 'img/lacivil/destino-costa.jpg' %}" alt="Costa Atlántica"></a></div>
+							<div class="team-prof"><h3>Costa Atlántica</h3><span>Buenos Aires</span></div>
+							<div class="sth_det2"><span class="ti-home"> <u>Hoteles adheridos</u></span></div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content"><a href="#"><img src="{% static 'img/lacivil/destino-caba.jpg' %}" alt="Buenos Aires"></a></div>
+							<div class="team-prof"><h3>Buenos Aires</h3><span>CABA</span></div>
+							<div class="sth_det2"><span class="ti-home"> <u>Hoteles adheridos</u></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- MAPA DE HOTELES -->
+		<section class="section-padding lc-mapsec" style="background:#fafbff">
+			<div class="container">
+				<div class="section-title text-center">
+					<h2>Mapa de hoteles adheridos</h2>
+					<p>Explorá los <b>20 destinos</b> y buscá tu hotel. Como socio accedés a tarifas preferenciales presentando tu carnet y DNI.</p>
+				</div>
+				<div class="hoteles-wrap">
+					<!-- MAP -->
+					<div class="mapbox">
+						<div id="leafmap"></div>
+					</div>
+					<!-- PANEL -->
+					<div class="hpanel">
+						<div class="hbar">
+							<div class="cnt"><b id="hcount">20 destinos</b> · <b id="htotal">44</b> hoteles</div>
+							<div class="hsearch">
+								<span class="ti-search"></span>
+								<input id="hsearch-input" type="text" placeholder="Buscar destino u hotel…">
+							</div>
+						</div>
+						<div class="hlist" id="hlist"></div>
+						<div class="resnote">
+							<span class="ti-info-alt"></span>
+							<div>Las reservas y pagos se gestionan directamente con cada establecimiento, presentando el carnet de socio y el documento de identidad. Cada hotel puede tener condiciones particulares según períodos y temporadas.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/mapa-data.js' %}?v=3"></script>
+<script src="{% static 'vendor/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'js/hoteles-b.js' %}?v=3"></script>
+{% endblock %}

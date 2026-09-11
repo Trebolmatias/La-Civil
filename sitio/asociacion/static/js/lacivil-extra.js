@@ -24,7 +24,7 @@
     }
 
     /* (4)(5) Modales de login y registro */
-    var LOGO = 'assets/img/lacivil/isotipo.svg';
+    var LOGO = '/static/img/lacivil/isotipo.svg';
     var modalsHTML =
       '<div class="lc-modal-ov" id="lcLogin" role="dialog" aria-modal="true" aria-labelledby="lcLoginT">' +
         '<div class="lc-modal">' +
