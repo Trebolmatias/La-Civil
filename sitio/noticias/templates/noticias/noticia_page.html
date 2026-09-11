@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-noticiapage{% endblock %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/noticias.css' %}">{% endblock %}
+
+{% block content %}
+<section class="section-top">
+    <div class="container">
+        <div class="col-lg-10 offset-lg-1 text-center">
+            <div class="section-top-title">
+                <h1>{{ page.title }}</h1>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li> / <a href="{{ page.get_parent.url }}">Noticias</a></li>
+                    <li> / {{ page.title }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog_area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <article class="lc-article">
+                    <p class="lc-meta">{{ page.fecha|date:"j \d\e F \d\e Y" }} &nbsp;·&nbsp; <a href="{{ page.get_parent.url }}">{{ page.get_categoria_display }}</a></p>
+                    {% if page.imagen %}
+                        {% image page.imagen width-1100 class="lc-article-hero" alt=page.title %}
+                    {% endif %}
+                    <h2>{{ page.title }}</h2>
+                    {% if page.copete %}<p class="lc-lead">{{ page.copete }}</p>{% endif %}
+                    {{ page.body|richtext }}
+                    <a class="btn_one" href="{{ page.get_parent.url }}"><i class="ti-arrow-left"></i> Volver a Noticias</a>
+                </article>
+
+                {# REACCIONES + COMENTARIOS — demo de comunidad (Fase 3). Lo real llega con login de socios. #}
+                <div class="lc-comments">
+                    <div class="lc-react">
+                        <button type="button" id="lcLike">👍 Me gusta <b>(0)</b></button>
+                        <button type="button" id="lcUseful">✅ Me sirve <b>(0)</b></button>
+                    </div>
+                    <div class="lc-loginbox">
+                        <p><b>Los comentarios son exclusivos para socios.</b><br>Iniciá sesión para dejar el tuyo.</p>
+                        <a class="btn_one" data-open="lcLogin" style="cursor:pointer">Ingresar para comentar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+    /* Demo: las reacciones suben al hacer clic (Fase 3 real: persistencia con login de socios) */
+    (function () {
+        document.querySelectorAll('.lc-react button').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var b = btn.querySelector('b');
+                var n = parseInt((b.textContent || '').replace(/\D/g, ''), 10) || 0;
+                if (btn.classList.toggle('on')) { n += 1; } else { n -= 1; }
+                b.textContent = '(' + n + ')';
+            });
+        });
+    })();
+</script>
+{% endblock extra_js %}

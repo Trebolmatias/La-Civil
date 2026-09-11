@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-noticiaindexpage{% endblock %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/noticias.css' %}">{% endblock %}
+
+{% block content %}
+<section class="section-top">
+    <div class="container">
+        <div class="col-lg-10 offset-lg-1 text-center">
+            <div class="section-top-title">
+                <h1>{{ page.title }}</h1>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li> / {{ page.title }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blog" class="blog_area section-padding">
+    <div class="container">
+        {% if page.intro %}
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center" style="margin-bottom:30px">{{ page.intro|richtext }}</div>
+        </div>
+        {% endif %}
+
+        <div class="row">
+            {% for noticia in noticias %}
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="single_blog">
+                    {% if noticia.imagen %}
+                        {% image noticia.imagen fill-600x400 class="img-fluid" alt=noticia.title %}
+                    {% endif %}
+                    <div class="content_box">
+                        <span>{{ noticia.fecha|date:"F Y" }} | <a href="{{ noticia.url }}">{{ noticia.get_categoria_display }}</a></span>
+                        <h2><a href="{{ noticia.url }}">{{ noticia.title }}</a></h2>
+                        {% if noticia.copete %}<p>{{ noticia.copete }}</p>{% endif %}
+                        <a class="btn_one" href="{{ noticia.url }}">Leer más <i class="ti-arrow-top-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>Todavía no hay noticias publicadas.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if noticias.paginator.num_pages > 1 %}
+        <div class="row">
+            <div class="col-12 text-center" style="margin-top:24px">
+                {% if noticias.has_previous %}
+                    <a class="btn_one" href="?page={{ noticias.previous_page_number }}"><i class="ti-arrow-left"></i> Anteriores</a>
+                {% endif %}
+                <span style="margin:0 14px">Página {{ noticias.number }} de {{ noticias.paginator.num_pages }}</span>
+                {% if noticias.has_next %}
+                    <a class="btn_one" href="?page={{ noticias.next_page_number }}">Siguientes <i class="ti-arrow-right"></i></a>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}
