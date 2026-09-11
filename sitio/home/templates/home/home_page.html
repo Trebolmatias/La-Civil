@@ -1,21 +1,450 @@
 {% extends "base.html" %}
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/home.css' %}"><link rel="stylesheet" href="{% static 'css/noticias.css' %}">{% endblock %}
+
 {% block content %}
-{# Contenido provisorio para validar el template base (Opción B). Se reemplaza al armar la home real. #}
-<section class="section-padding" style="background-image:url({% static 'img/bg/section-top.jpg' %});background-size:cover;background-position:center">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-9">
-                <span class="lc-kicker" style="display:inline-block;margin-bottom:14px">Desde 1986</span>
-                <h1>Base de Django + Wagtail lista</h1>
-                <p class="mt-3">Este es el <strong>template base</strong> de la Opción B funcionando dentro de Django: navbar, footer, tipografías, íconos y estilos ya cargan desde los archivos estáticos.</p>
-                <p>{% if page.body %}{{ page.body|richtext }}{% endif %}</p>
-                <a href="#" data-open="lcRegister" class="btn_one mt-2">Probar modal “Asociarme” <i class="ti-arrow-top-right"></i></a>
-            </div>
-        </div>
-    </div>
-</section>
+		<!-- HERO CARRUSEL (3 slides) -->
+		<section class="lc-hero">
+			<div id="heroSlider" class="owl-carousel">
+				<!-- Slide 1: Institucional -->
+				<div class="lc-slide" style="background-image:url({% static 'img/lacivil/hero-banco.jpg' %})">
+					<div class="container">
+						<div class="lc-slide-c">
+							<span class="lc-kicker">Desde 1986</span>
+							<h1>Beneficios que acompañan a <span>vos y tu familia</span></h1>
+							<p>Somos la Asociación del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina. Representamos y acompañamos a nuestros afiliados desde 1986.</p>
+							<a href="#" data-open="lcRegister" class="btn_one">Asociate <i class="ti-arrow-top-right"></i></a>
+							<a href="#" class="btn_ghost">Conocé la Asociación</a>
+						</div>
+					</div>
+				</div>
+				<!-- Slide 2: Turismo -->
+				<div class="lc-slide" style="background-image:url({% static 'img/lacivil/destino-bariloche.jpg' %})">
+					<div class="container">
+						<div class="lc-slide-c">
+							<span class="lc-kicker">Turismo</span>
+							<h1>44 hoteles adheridos en <span>todo el país</span></h1>
+							<p>Descuentos exclusivos para vos y tu familia en los destinos más elegidos. Reservá presentando tu carnet de socio.</p>
+							<a href="#" class="btn_one">Ver destinos <i class="ti-arrow-top-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- Slide 3: Capacitación / Beneficios -->
+				<div class="lc-slide" style="background-image:url({% static 'img/lacivil/quienes-somos.jpg' %})">
+					<div class="container">
+						<div class="lc-slide-c">
+							<span class="lc-kicker">Capacitación</span>
+							<h1>Becas y convenios para <span>seguir creciendo</span></h1>
+							<p>Convenios universitarios, cursos de idiomas y formación profesional para socios y su familia.</p>
+							<a href="#" class="btn_one">Ver beneficios <i class="ti-arrow-top-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTADORES -->
+		<section class="count_area counter_feature">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 col-xs-12">
+						<div class="single-counter">
+							<span class="sc_one"><i class="fa-solid fa-calendar-check"></i></span>
+							<h2 class="counter-num">1986</h2>
+							<p>Año de fundación</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12">
+						<div class="single-counter">
+							<span class="sc_two"><i class="fa-solid fa-users"></i></span>
+							<h2 class="counter-num">4129</h2>
+							<p>Afiliados</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12">
+						<div class="single-counter">
+							<span class="sc_three"><i class="fa-solid fa-hotel"></i></span>
+							<h2 class="counter-num">44</h2>
+							<p>Hoteles adheridos</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12">
+						<div class="single-counter">
+							<span class="sc_four"><i class="fa-solid fa-map-location-dot"></i></span>
+							<h2 class="counter-num">20</h2>
+							<p>Destinos turísticos</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PILARES -->
+		<section class="top_cat__area section-padding" style="background-image: url({% static 'img/bg/shape-1.png' %}); background-size:cover; background-position: center center;">
+			<div class="container">
+				<div class="section-title text-center">
+					<h2>Todo lo que Asociación del Personal Jerárquico del Banco Nación hace por vos</h2>
+					<p>Beneficios, turismo, capacitación y bienestar para el personal jerárquico del Banco Nación y su familia.</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+						<div class="single_tp">
+							<span class="sc_one"><i class="fa-solid fa-gift"></i></span>
+							<h3>Beneficios</h3>
+							<p>Farmacias, comercios, salud y descuentos exclusivos para vos y tu familia.</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+						<div class="single_tp">
+							<span class="sc_two"><i class="fa-solid fa-hotel"></i></span>
+							<h3>Turismo y Hotelería</h3>
+							<p>Hoteles adheridos y descuentos en los destinos más elegidos de todo el país.</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+						<div class="single_tp">
+							<span class="sc_three"><i class="fa-solid fa-graduation-cap"></i></span>
+							<h3>Capacitación</h3>
+							<p>Convenios universitarios, cursos de idiomas y formación profesional.</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+						<div class="single_tp">
+							<span class="sc_four"><i class="fa-solid fa-hand-holding-heart"></i></span>
+							<h3>Bienestar</h3>
+							<p>Acompañamiento, cultura y calidad de vida para el personal jerárquico.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- QUIÉNES SOMOS -->
+		<section class="ab_area section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+						<div class="ab_img">
+							<img src="{% static 'img/lacivil/quienes-somos.jpg' %}" class="img-fluid" alt="Asociación del Personal Jerárquico del Banco Nación">
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="ab_content">
+							<h2>Representamos al personal jerárquico del Banco Nación desde 1986</h2>
+							<p>Somos la Asociación Civil del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina. Trabajamos por los derechos, el bienestar y el desarrollo de nuestros afiliados y su familia.</p>
+							<ul>
+								<li><span class="ti-check"></span> Beneficios y convenios vigentes en todo el país</li>
+								<li><span class="ti-check"></span> Turismo y hotelería con tarifas preferenciales</li>
+								<li><span class="ti-check"></span> Capacitación y desarrollo profesional continuo</li>
+							</ul>
+							<a class="btn_one" href="#">Conocé la Asociación <i class="ti-arrow-top-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CATEGORÍAS DE BENEFICIOS -->
+		<section class="top_cat__area section-padding" style="background-image: url({% static 'img/bg/section-2.jpg' %}); background-size:cover; background-position: center center;">
+			<div class="container">
+				<div class="section-title text-center">
+					<h2>Beneficios por categoría</h2>
+					<p>Explorá las áreas de beneficios y convenios disponibles para socios.</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="cat_list">
+							<ul>
+								<li><a href="#"><img src="{% static 'img/e1.png' %}" alt="" /> Farmacias</a></li>
+								<li><a href="#"><img src="{% static 'img/e2.png' %}" alt="" /> Universitarios</a></li>
+								<li><a href="#"><img src="{% static 'img/e3.png' %}" alt="" /> Idiomas</a></li>
+								<li><a href="#"><img src="{% static 'img/e4.png' %}" alt="" /> Turismo</a></li>
+								<li><a href="#"><img src="{% static 'img/e5.png' %}" alt="" /> Salud</a></li>
+								<li><a href="#"><img src="{% static 'img/e6.png' %}" alt="" /> Comercios</a></li>
+								<li><a href="#"><img src="{% static 'img/e7.png' %}" alt="" /> Cultura</a></li>
+								<li><a href="#"><img src="{% static 'img/e8.png' %}" alt="" /> Créditos</a></li>
+								<li><a href="#"><img src="{% static 'img/e9.png' %}" alt="" /> Deportes</a></li>
+								<li><a href="#"><img src="{% static 'img/e2.png' %}" alt="" /> Hotelería</a></li>
+								<li><a href="#"><img src="{% static 'img/e3.png' %}" alt="" /> Bienestar</a></li>
+								<li><a href="#"><img src="{% static 'img/e7.png' %}" alt="" /> Convenios</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- BENEFICIOS Y SERVICIOS -->
+		<section id="servicios" class="home_course section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-sm-6 col-xs-12">
+						<div class="section-title">
+							<h2>Beneficios y servicios <br />para vos y tu familia</h2>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="cour_btn">
+							<a href="#" class="btn_one">Ver todos <i class="ti-arrow-top-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img">
+								<img src="{% static 'img/lacivil/destino-bariloche.jpg' %}" class="img-fluid" alt="Turismo" />
+								<span>Turismo</span>
+							</div>
+							<h4><a href="#turismo">Hoteles adheridos en los mejores destinos del país</a></h4>
+							<p><span class="ti-map-alt"> </span> 20 destinos · 44 hoteles</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img">
+								<img src="{% static 'img/lacivil/serv-farmacias.png' %}" class="img-fluid" alt="Farmacias" />
+								<span>Salud</span>
+							</div>
+							<h4><a href="#">Convenio con farmacias en todo el país</a></h4>
+							<p><span class="ti-user"> </span> Socios y familia directa</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img">
+								<img src="{% static 'img/lacivil/serv-universitarios.png' %}" class="img-fluid" alt="Universitarios" />
+								<span>Educación</span>
+							</div>
+							<h4><a href="#">Convenios universitarios y becas de estudio</a></h4>
+							<p><span class="ti-book"> </span> Grado y posgrado</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img">
+								<img src="{% static 'img/lacivil/serv-idiomas.png' %}" class="img-fluid" alt="Idiomas" />
+								<span>Capacitación</span>
+							</div>
+							<h4><a href="#">Cursos de idiomas para socios y su familia</a></h4>
+							<p><span class="ti-blackboard"> </span> Modalidad presencial y online</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img">
+								<img src="{% static 'img/lacivil/serv-beneficios.jpg' %}" class="img-fluid" alt="Beneficios" />
+								<span>Beneficios</span>
+							</div>
+							<h4><a href="#">Descuentos en comercios y servicios</a></h4>
+							<p><span class="ti-shopping-cart"> </span> Red de comercios adheridos</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img">
+								<img src="{% static 'img/lacivil/serv-oportunidades.jpg' %}" class="img-fluid" alt="Oportunidades" />
+								<span>Oportunidades</span>
+							</div>
+							<h4><a href="#">Créditos y oportunidades para socios</a></h4>
+							<p><span class="ti-wallet"> </span> Condiciones preferenciales</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- TURISMO / DESTINOS -->
+		<section id="turismo" class="team_area section-padding">
+			<div class="container">
+				<div class="section-title text-center">
+					<h2>Turismo en todo el país</h2>
+					<p>Descuentos y hoteles adheridos en los destinos más elegidos por nuestros socios.</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content">
+								<a href="#"><img src="{% static 'img/lacivil/destino-bariloche.jpg' %}" alt="Bariloche"></a>
+							</div>
+							<div class="team-prof">
+								<h3>Bariloche</h3>
+								<span>Río Negro · Patagonia</span>
+							</div>
+							<div class="sth_det2">
+								<span class="ti-home"> <u>Hoteles adheridos</u></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content">
+								<a href="#"><img src="{% static 'img/lacivil/destino-salta.jpg' %}" alt="Salta"></a>
+							</div>
+							<div class="team-prof">
+								<h3>Salta</h3>
+								<span>Norte argentino</span>
+							</div>
+							<div class="sth_det2">
+								<span class="ti-home"> <u>Hoteles adheridos</u></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content">
+								<a href="#"><img src="{% static 'img/lacivil/destino-mendoza.jpg' %}" alt="Mendoza"></a>
+							</div>
+							<div class="team-prof">
+								<h3>Mendoza</h3>
+								<span>Cuyo</span>
+							</div>
+							<div class="sth_det2">
+								<span class="ti-home"> <u>Hoteles adheridos</u></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="our-team">
+							<div class="team-content">
+								<a href="#"><img src="{% static 'img/lacivil/destino-cataratas.jpg' %}" alt="Cataratas del Iguazú"></a>
+							</div>
+							<div class="team-prof">
+								<h3>Cataratas</h3>
+								<span>Misiones · Litoral</span>
+							</div>
+							<div class="sth_det2">
+								<span class="ti-home"> <u>Hoteles adheridos</u></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SERVICIO DE CONTENIDO / NOVEDADES -->
+		<section class="ab_area section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="ab_content">
+							<h2>Novedades y comunicados, siempre al día</h2>
+							<p>Publicamos noticias institucionales, beneficios nuevos y comunicados oficiales de forma permanente, para que ningún socio se pierda lo importante.</p>
+							<ul>
+								<li><span class="ti-check"></span> Noticias y novedades cada semana</li>
+								<li><span class="ti-check"></span> Comunicados oficiales de la Asociación</li>
+								<li><span class="ti-check"></span> Beneficios y convenios siempre actualizados</li>
+							</ul>
+							<a class="btn_one" href="#noticias">Ver noticias <i class="ti-arrow-top-right"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+						<div class="ab_img">
+							<img src="{% static 'img/lacivil/promo.jpg' %}" class="img-fluid" alt="Novedades">
+							<div class="home_ps2">
+								<span class="ti-announcement"></span>
+								<h2>Cada</h2>
+								<p>semana</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- TESTIMONIOS -->
+		<section class="testi_area section-padding">
+			<div class="container">
+				<div class="section-title">
+					<h2>La voz de nuestros <br />socios</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 col-xs-12">
+						<div class="ab_img">
+							<img src="{% static 'img/lacivil/banco-plaza.jpg' %}" class="img-fluid" alt="Banco Nación">
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-12 col-xs-12">
+						<div id="testimonial-slider" class="owl-carousel">
+							<div class="testimonial">
+								<img src="{% static 'img/quote.png' %}" alt="" />
+								<div class="testimonial_content">
+									<i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i>
+									<p>Gracias a la Asociación pudimos viajar en familia con descuentos en hoteles de todo el país. Un beneficio que realmente se aprovecha.</p>
+								</div>
+								<div class="testi_pic_title">
+									<img src="{% static 'img/testimonial/1.png' %}" alt="">
+									<h4>Marcela G.</h4>
+									<p>Socia</p>
+								</div>
+							</div>
+							<div class="testimonial">
+								<img src="{% static 'img/quote.png' %}" alt="" />
+								<div class="testimonial_content">
+									<i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i>
+									<p>Los convenios de capacitación me permitieron seguir formándome mientras trabajaba. El acompañamiento de Asociación del Personal Jerárquico del Banco Nación es enorme.</p>
+								</div>
+								<div class="testi_pic_title">
+									<img src="{% static 'img/testimonial/2.png' %}" alt="">
+									<h4>Diego R.</h4>
+									<p>Socio</p>
+								</div>
+							</div>
+							<div class="testimonial">
+								<img src="{% static 'img/quote.png' %}" alt="" />
+								<div class="testimonial_content">
+									<i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i>
+									<p>El convenio con farmacias es un beneficio que usamos todos los meses. Estar asociado se nota en el día a día.</p>
+								</div>
+								<div class="testi_pic_title">
+									<img src="{% static 'img/testimonial/3.png' %}" alt="">
+									<h4>Laura M.</h4>
+									<p>Socia</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- NOTICIAS (dinámicas desde el CMS) -->
+		<section id="noticias" class="blog_area section-padding">
+			<div class="container">
+				<div class="section-title text-center">
+					<h2>Últimas noticias</h2>
+					<p>Novedades, beneficios y comunicados de la Asociación.</p>
+				</div>
+				<div class="row">
+					{% for noticia in ultimas_noticias %}
+					<div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="single_blog">
+							{% if noticia.imagen %}{% image noticia.imagen fill-600x400 class="img-fluid" alt=noticia.title %}{% endif %}
+							<div class="content_box">
+								<span>{{ noticia.fecha|date:"F Y" }} | <a href="{{ noticia.url }}">{{ noticia.get_categoria_display }}</a></span>
+								<h2><a href="{{ noticia.url }}">{{ noticia.title }}</a></h2>
+								<a class="btn_one" href="{{ noticia.url }}">Leer más <i class="ti-arrow-top-right"></i></a>
+							</div>
+						</div>
+					</div>
+					{% empty %}
+					<div class="col-12 text-center"><p>Pronto vas a encontrar acá nuestras novedades.</p></div>
+					{% endfor %}
+				</div>
+				<div class="row"><div class="col-12 text-center" style="margin-top:20px">
+					<a class="btn_one" href="/noticias/">Ver todas las noticias <i class="ti-arrow-top-right"></i></a>
+				</div></div>
+			</div>
+		</section>
+
 {% endblock content %}

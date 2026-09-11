@@ -1,0 +1,12 @@
+/* Ajustes de layout de la home (heredados de la maqueta Opción B, solo layout) */
+.hb_height{height:auto!important;min-height:0;padding:64px 0 84px}
+.hero-text h1{padding-top:0!important;margin-top:0}
+.hero-text-img{position:relative;right:auto;bottom:auto;margin:0}
+.hero-text-img img{position:relative;width:100%;max-width:100%;height:auto;border-radius:18px;box-shadow:0 30px 70px -30px rgba(11,41,66,.45)}
+.ab_area .ab_img{position:relative}
+.home_ps2{top:auto!important;left:auto!important;bottom:16px;right:16px;width:auto;padding:14px 18px}
+@media (max-width:991px){.hb_height{padding:36px 0 56px}}
+.single_c_img img{height:220px;object-fit:cover;width:100%}
+.single_blog img{height:230px;object-fit:cover;width:100%}
+.our-team .team-content img{height:280px;object-fit:cover;width:100%}
+.price{font-weight:700}
