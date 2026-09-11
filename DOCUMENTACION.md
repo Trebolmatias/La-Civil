@@ -1,7 +1,7 @@
 # la Civil — Documentación del proyecto web
 
 > Asociación Civil del Personal Jerárquico, Profesional y Técnico del Banco de la Nación Argentina.
-> Última actualización: **2026-08-10** · Cliente: **la Civil** (presidenta: Laura Elena Rizzo).
+> Última actualización: **2026-09-11** · Cliente: **la Civil** (presidenta: Laura Elena Rizzo).
 
 ---
 
@@ -127,12 +127,30 @@ Al registrar socios aplica la **Ley 25.326** (regulador: **AAIP**; hay una refor
 
 ## 7. Pendientes
 
-- [ ] Reunión con la presidenta: mostrar Opción A y B + la lámina del roadmap → **elegir dirección**.
-- [ ] Opción B: reemplazar **testimonios genéricos** por reales; artículos de noticia individuales (hoy los "Leer más" van a `#`).
-- [ ] Opción A: imágenes por reemplazar (`hero-2.jpg` con marca de agua, `institucional-3.jpg` placeholder); grillas de 3 cards en móvil (la última impar debería ocupar el ancho).
-- [ ] Al elegir Opción B como definitiva: migrar lo pesado que ya existe en Opción A (mapa Leaflet de hoteles, estatuto completo).
-- [ ] Definir hosting (Python + PostgreSQL) para Django/Wagtail.
-- [ ] **Opción B: página de noticia individual con reacciones + comentarios** (mockup). La está armando Matías. Ver sección 5 → "Cómo se muestra la comunidad".
+> Actualizado **2026-09-11**. Decisiones tomadas desde la reunión con la presidenta + vice (2026-08-20).
+
+### Decidido / cerrado
+- [x] **Reunión hecha → eligieron la Opción B.** Es la definitiva.
+- [x] **Opción A descartada** (ya no se mantiene ni se migra su contenido).
+- [x] **Stack confirmado: Django + Wagtail**, con hosting Python + PostgreSQL a cargo de la Asociación (Matías instala).
+
+### Workstream activo — Integración con Estudio CFL (lo más importante)
+La web nueva debe registrar/actualizar socios en **Estudio CFL** (SaaS de gestión). Enfoque: integrar por su **método oficial (API con token)**, NO reversar su base. Relevamiento en `research/alta-actual/` (git-ignored).
+
+**Puntos de la web actual que interactúan con CFL** (relevado 2026-09-11):
+1. **Alta de socio** (`/socios/alta`) → **ESCRIBE** en CFL: crea el socio. POST server-side, 30 campos en 5 grupos + reCAPTCHA v3 + firma digital (canvas). Tablas de códigos ya capturadas (Sucursal 853, Cargo 349, Banco 65 BCRA, etc.).
+2. **Actualización de datos** (`/socios/actualizacion`) → **LEE + ESCRIBE** en CFL. Flujo de 3 pasos: (1) identificarse con tipo+nº de documento, (2) verificar **OTP enviado al mail registrado** — esto implica que el backend consulta el socio en CFL para obtener su mail, (3) actualizar domicilio, teléfono, correo, sucursal.
+
+**Lo que NO integra con CFL** (descartado en el relevamiento): Bonos (`/socios/bonos`) y demás trámites = descarga de PDF + correo interno. Valores vigentes = estático. **AMAIP / "Plataforma Bienestar"** (botón "Ingresar" → `amaip.ai`) = plataforma de bienestar/formación de un **tercero separado**, se activa con DNI, **no es CFL** ni un portal de autogestión contra el padrón.
+
+- [ ] **Redactar el mail a la gente de CFL** (Matías ya mandó mail al vice y tiene el contacto de CFL) pidiendo: doc de la API, URL base + endpoints de **alta** y **actualización** (incluye lookup por documento), sandbox, obtención/envío/renovación del token, formato del request (JSON, nombres exactos), respuestas/errores, y tablas de códigos oficiales (fuente + cómo se actualizan). Ver preguntas en `research/alta-actual/README.md`.
+- [ ] Cruzar el **nº real de sucursales del BNA** (Matías dice que son más de 853 → la lista del form actual estaría desactualizada; sirve de argumento para "¿cuál es la fuente y cómo se actualiza?").
+
+### Pendientes de desarrollo / contenido
+- [ ] **Django (Fase 1):** la rama **`desarrollo-sitio`** existe **solo en local, falta pushearla a GitHub**. Scaffold Wagtail pendiente (`.venv/Scripts/wagtail.exe start asociacion sitio`). Reutilizar el HTML de la maqueta como templates.
+- [ ] **Migración a Django:** ¿realmente hace falta? Se hicieron ajustes al mapa en la Opción B (Leaflet + OpenStreetMap, sin API key) → **evaluar más adelante** si el mapa/estatuto quedan bien como están antes de rehacerlos en Django.
+- [ ] **Opción B — contenido real:** reemplazar testimonios genéricos por reales; conseguir de la Asociación listado real de hoteles con dirección, fotos de la Comisión Directiva, y reemplazar imágenes placeholder. Optimizar `maestro1.png` (~1,7 MB, opcional).
+- [ ] **Opción B — noticia individual con reacciones + comentarios** (mockup Fase 3). Ya hay una de ejemplo (`noticia-dia-del-maestro.html`).
 
 ---
 
