@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-capacitacionpage{% endblock %}
+
+{% block extra_css %}<style>.single_c_img img{height:220px;object-fit:cover;width:100%}.ab_img img{border-radius:16px}.price{font-weight:700}</style>{% endblock %}
+
+{% block content %}
+		<!-- SECTION TOP -->
+		<section class="section-top">
+			<div class="container">
+				<div class="col-lg-10 offset-lg-1 text-center">
+					<div class="section-top-title">
+						<h1>{{ page.title }}</h1>
+						<ul><li><a href="/">Inicio</a></li><li> / {{ page.title }}</li></ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- INTRO -->
+		<section class="ab_area section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+						<div class="ab_img"><img src="{% static 'img/lacivil/serv-universitarios.png' %}" class="img-fluid" alt="Capacitación"></div>
+					</div>
+					<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+						<div class="ab_content">
+							<h2>Formación y desarrollo profesional</h2>
+							<p>Impulsamos el crecimiento de nuestros socios y su familia con convenios educativos, cursos de idiomas y becas de estudio en instituciones de todo el país.</p>
+							<ul>
+								<li><span class="ti-check"></span> Convenios universitarios de grado y posgrado</li>
+								<li><span class="ti-check"></span> Cursos de idiomas presenciales y online</li>
+								<li><span class="ti-check"></span> Becas y ayudas económicas para estudiar</li>
+							</ul>
+							<a class="btn_one" href="#">Consultá cómo acceder <i class="ti-arrow-top-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- GRILLA CAPACITACIÓN -->
+		<section class="home_course section-padding">
+			<div class="container">
+				<div class="section-title text-center">
+					<h2>Nuestra oferta de capacitación</h2>
+					<p>Propuestas educativas con condiciones preferenciales para socios.</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img"><img src="{% static 'img/lacivil/serv-universitarios.png' %}" class="img-fluid" alt="Universitarios" /><span>Educación</span></div>
+							<h4><a href="#">Convenios universitarios</a></h4>
+							<p><span class="ti-book"> </span> Grado y posgrado</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img"><img src="{% static 'img/lacivil/serv-idiomas.png' %}" class="img-fluid" alt="Idiomas" /><span>Idiomas</span></div>
+							<h4><a href="#">Cursos de idiomas</a></h4>
+							<p><span class="ti-blackboard"> </span> Presencial y online</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="single_course">
+							<div class="single_c_img"><img src="{% static 'img/lacivil/serv-beneficios.jpg' %}" class="img-fluid" alt="Becas" /><span>Becas</span></div>
+							<h4><a href="#">Becas y ayudas de estudio</a></h4>
+							<p><span class="ti-user"> </span> Para socios y su familia</p>
+							<div class="price">Beneficio para socios</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+{% endblock content %}

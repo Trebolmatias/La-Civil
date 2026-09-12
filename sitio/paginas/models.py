@@ -48,3 +48,14 @@ class BeneficiosPage(Page):
 
     class Meta:
         verbose_name = "Página de Beneficios"
+
+
+class CapacitacionPage(Page):
+    """Página de Capacitación: intro + grilla de convenios educativos y becas."""
+
+    parent_page_types = ["home.HomePage"]
+    subpage_types = []
+    max_count = 1
+
+    class Meta:
+        verbose_name = "Página de Capacitación"
