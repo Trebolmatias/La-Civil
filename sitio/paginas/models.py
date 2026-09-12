@@ -37,3 +37,14 @@ class InstitucionalPage(Page):
 
     class Meta:
         verbose_name = "Página Institucional"
+
+
+class BeneficiosPage(Page):
+    """Página de Beneficios: categorías + grilla de beneficios y convenios."""
+
+    parent_page_types = ["home.HomePage"]
+    subpage_types = []
+    max_count = 1
+
+    class Meta:
+        verbose_name = "Página de Beneficios"
